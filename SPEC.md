@@ -334,14 +334,158 @@ kig-website/
 
 ---
 
-## 12. アカウント情報
+## 12. 外部サービス アカウント・ログイン情報
 
-| サービス | アカウント |
-|---------|-----------|
-| GitHub | ishiihiroko0102-create |
-| Vercel | ishii.hiroko0102@gmail.com |
-| お名前ドットコム | （ドメイン管理） |
-| heteml | （現行サーバー） |
+> ⚠️ このファイルはパブリックリポジトリに保存されています。パスワードは別途管理してください。
+
+---
+
+### GitHub
+
+| 項目 | 内容 |
+|------|------|
+| ログインURL | https://github.com/login |
+| アカウント名 | ishiihiroko0102-create |
+| リポジトリURL | https://github.com/ishiihiroko0102-create/kig-website |
+
+**CLI 操作:**
+```bash
+# GitHub CLI インストール（Mac）
+brew install gh
+
+# ログイン（ブラウザ認証）
+gh auth login --web
+
+# ログイン状態確認
+gh auth status
+
+# リポジトリ作成
+gh repo create kig-website --public --source=. --remote=origin --push
+```
+
+---
+
+### Vercel
+
+| 項目 | 内容 |
+|------|------|
+| ログインURL | https://vercel.com/login |
+| 登録メール | ishii.hiroko0102@gmail.com |
+| ログイン方法 | GitHub アカウント連携（Social Login）|
+| プラン | Hobby（無料） |
+| ダッシュボード | https://vercel.com/hirokos-projects-9c46ab86/kig-website |
+| 設定画面 | https://vercel.com/hirokos-projects-9c46ab86/kig-website/settings |
+| 環境変数 | https://vercel.com/hirokos-projects-9c46ab86/kig-website/settings/environment-variables |
+| デプロイ履歴 | https://vercel.com/hirokos-projects-9c46ab86/kig-website/deployments |
+
+**環境変数（設定済み）:**
+
+| 変数名 | 値 | 用途 |
+|--------|-----|------|
+| BASIC_AUTH_USER | kig | Basic認証ユーザー名 |
+| BASIC_AUTH_PASSWORD | king2010 | Basic認証パスワード |
+
+**CLI 操作:**
+```bash
+# Vercel CLI インストール
+npm install -g vercel
+
+# ログイン（ブラウザ認証）
+vercel login --web
+# → https://vercel.com/oauth/device?user_code=XXXX を開いてコード入力
+
+# 本番デプロイ
+vercel --prod
+
+# ドメイン追加
+vercel domains add kig.co.jp
+
+# ドメイン確認
+vercel domains inspect kig.co.jp
+
+# 環境変数追加
+vercel env add BASIC_AUTH_USER production
+vercel env add BASIC_AUTH_PASSWORD production
+
+# 環境変数一覧
+vercel env ls
+```
+
+---
+
+### お名前ドットコム
+
+| 項目 | 内容 |
+|------|------|
+| ログインURL | https://www.onamae.com |
+| 管理ドメイン | kig.co.jp |
+
+**DNS設定の手順:**
+1. ログイン後「ドメイン」メニューへ
+2. 「ドメイン機能一覧」をクリック
+3. 「DNS設定/転送設定」を選択
+4. 対象ドメイン（kig.co.jp）を選んで「次へ」
+5. 「ドメインDNS」→「DNSレコード設定」を選択
+6. Aレコードを追加
+
+**現在の設定:**
+
+| タイプ | ホスト名 | 値 | TTL |
+|--------|----------|----|-----|
+| A | @ | 76.76.21.21（Vercel）| 3600 |
+
+---
+
+### heteml（現行サーバー）
+
+| 項目 | 内容 |
+|------|------|
+| ログインURL | https://heteml.jp |
+| 用途 | kig.co.jp の現行ネームサーバー管理 |
+| ネームサーバー | dns0.heteml.jp / dns1.heteml.jp |
+
+> ※ kig.co.jp のネームサーバーは heteml のまま変更せず、お名前ドットコムの DNS レコードで Vercel の IP を直接指定している。
+
+---
+
+### 楽天市場ストア
+
+| 項目 | 内容 |
+|------|------|
+| ストアURL | https://www.rakuten.co.jp/kig-ltd/ |
+| 店舗名 | メガキングドットコム楽天ストア |
+| RMS（管理画面）| https://rms.rakuten.co.jp/ |
+
+---
+
+### SNS
+
+| サービス | URL | 用途 |
+|---------|-----|------|
+| Facebook | https://www.facebook.com/megaking.com.kig/ | 公式Facebook |
+| Instagram | https://www.instagram.com/megaking_kig/ | 公式Instagram |
+
+---
+
+### 現行サイト（参照元）
+
+| 項目 | 内容 |
+|------|------|
+| URL | https://www.kig-ltd.com |
+| CMS | WordPress（Wix）|
+| 用途 | コンテンツ移植元・本番環境（予定） |
+
+---
+
+## 13. CLI ツール セットアップ一覧
+
+| ツール | インストール方法 | 確認コマンド |
+|--------|---------------|-------------|
+| Node.js | nodebrew 管理（`~/.nodebrew`）| `node --version` |
+| npm | Node.js に同梱 | `npm --version` |
+| Vercel CLI | `npm install -g vercel` | `vercel --version` |
+| GitHub CLI | `brew install gh` | `gh --version` |
+| Astro CLI | プロジェクト内 `npx astro` | `npx astro --version` |
 
 ---
 
