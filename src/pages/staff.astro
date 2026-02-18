@@ -1,0 +1,128 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+
+const staff = [
+  { name: '石井 浩子', role: 'WEBマーケティング', initial: '石' },
+  { name: '中本 学志', role: '広報戦略兼バイヤー', initial: '中' },
+  { name: '中嶋 創介', role: 'バイヤー', initial: '中' },
+  { name: '本岡 勇作', role: 'バイヤー兼商品管理', initial: '本' },
+  { name: '樋口 愛実', role: 'アカウントディレクター', initial: '樋' },
+  { name: 'たっかん', role: '商品管理', initial: 'た' },
+  { name: '監督', role: '商品管理', initial: '監' },
+  { name: 'メガゴリくん', role: '広報', initial: 'メ' },
+]
+---
+
+<Layout title="スタッフ紹介">
+  <Header />
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="breadcrumb"><a href="/">HOME</a> / スタッフ紹介</p>
+        <h1 class="page-title">スタッフ紹介</h1>
+        <p class="page-sub">KIGを支えるメンバーをご紹介します。</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="staff-grid">
+          {staff.map((s, i) => (
+            <div class={`staff-card fade-up ${i > 0 ? `fade-up-delay-${Math.min(i % 4, 3)}` : ''}`}>
+              <div class="staff-avatar">{s.initial}</div>
+              <p class="staff-name">{s.name}</p>
+              <p class="staff-role">{s.role}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="recruit-banner fade-up">
+      <div class="container">
+        <p>求人採用のエントリーはこちら</p>
+        <a href="/recruit" class="btn btn-white">採用情報を見る</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #0d1f6e 0%, #1e4fd8 100%);
+    padding: 60px 0;
+  }
+  .breadcrumb { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 16px; }
+  .breadcrumb a { color: rgba(255,255,255,0.5); }
+  .page-title { color: #fff; margin-bottom: 12px; }
+  .page-sub { color: rgba(255,255,255,0.65); font-size: 16px; }
+
+  .staff-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .staff-card {
+    text-align: center;
+    padding: 40px 24px 32px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .staff-card:hover {
+    box-shadow: 0 8px 32px rgba(13,31,110,0.1);
+    transform: translateY(-4px);
+  }
+  .staff-avatar {
+    width: 80px;
+    height: 80px;
+    background: #e8edf8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #0d1f6e;
+  }
+  .staff-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 6px;
+  }
+  .staff-role {
+    font-size: 13px;
+    color: #6b7280;
+  }
+
+  .recruit-banner {
+    background: linear-gradient(135deg, #0d1f6e 0%, #1e4fd8 100%);
+    padding: 64px 0;
+    text-align: center;
+  }
+  .recruit-banner p {
+    color: rgba(255,255,255,0.8);
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+  .btn-white { background: #fff; color: #0d1f6e; font-weight: 600; }
+  .btn-white:hover { background: #f3f4f6; }
+
+  @media (max-width: 768px) {
+    .staff-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    })
+  }, { threshold: 0.1 })
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el))
+</script>

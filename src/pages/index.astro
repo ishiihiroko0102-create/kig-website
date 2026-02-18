@@ -2,312 +2,507 @@
 import Layout from '../layouts/Layout.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
-
-const title = 'ホーム'
 ---
 
-<Layout title={title}>
+<Layout title="ホーム">
   <Header />
-
   <main>
+
     <!-- Hero -->
     <section class="hero">
-      <div class="container">
-        <div class="hero-inner">
-          <p class="eyebrow">中古自動車部品 × グローバル販売</p>
-          <h1 class="headline">信頼と品質で、<br />世界をつなぐ。</h1>
-          <p class="subheadline">創業以来、誠実さと技術力で業界をリード。<br />国内外のお客様に最高品質の部品をお届けします。</p>
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="hero-label">K Improve Group</p>
+          <h1 class="hero-heading">持続と共に<br />果てなき進化を。</h1>
+          <p class="hero-sub">No improve without lasting.<br />「進化」とは、「持続」から始まる。</p>
           <div class="hero-actions">
-            <a href="/contact" class="btn-primary">お問い合わせ</a>
-            <a href="/business" class="btn-outline">事業内容を見る</a>
+            <a href="/about" class="btn btn-navy">会社を知る</a>
+            <a href="/contact" class="btn btn-outline-navy">お問い合わせ</a>
           </div>
         </div>
-        <div class="hero-badge">
-          <p class="badge-num">30<span>年+</span></p>
-          <p class="badge-label">の業界実績</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Stats -->
-    <section class="stats">
-      <div class="container">
-        <div class="stats-grid">
-          <div class="stat">
-            <p class="stat-num">50,000<span>+</span></p>
-            <p class="stat-label">取扱部品点数</p>
+        <div class="hero-visual">
+          <div class="hero-card fade-up">
+            <p class="card-k">K</p>
+            <p class="card-word">King</p>
+            <p class="card-desc">業界を先導する</p>
           </div>
-          <div class="stat">
-            <p class="stat-num">80<span>カ国+</span></p>
-            <p class="stat-label">輸出実績</p>
+          <div class="hero-card fade-up fade-up-delay-1">
+            <p class="card-k">K</p>
+            <p class="card-word">Keep</p>
+            <p class="card-desc">サスティナブル意識</p>
           </div>
-          <div class="stat">
-            <p class="stat-num">99<span>%</span></p>
-            <p class="stat-label">顧客満足度</p>
-          </div>
-          <div class="stat">
-            <p class="stat-num">24<span>h</span></p>
-            <p class="stat-label">問い合わせ対応</p>
+          <div class="hero-card fade-up fade-up-delay-2">
+            <p class="card-k">K</p>
+            <p class="card-word">Kind</p>
+            <p class="card-desc">顧客志向</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Features -->
-    <section class="features section">
+    <!-- Mission -->
+    <section class="section mission">
       <div class="container">
-        <p class="section-eyebrow">WHY KIG</p>
-        <h2 class="headline-dark">選ばれる理由</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <p class="feature-num">01</p>
-            <h3>豊富な在庫</h3>
-            <p>取扱部品数業界トップクラス。国産・外国産問わず幅広い在庫を取り揃え、即日納品にも対応しています。</p>
+        <p class="section-label fade-up">OUR MISSION</p>
+        <h2 class="section-title fade-up">サスティナブルな変革と進化を遂げ続け、<br />業界を導く会社へ。</h2>
+        <div class="mission-grid">
+          <div class="mission-item fade-up">
+            <p class="mission-en">Leading</p>
+            <p class="mission-ja">先導する</p>
           </div>
-          <div class="feature-card">
-            <p class="feature-num">02</p>
-            <h3>厳格な品質管理</h3>
-            <p>独自の検品プロセスで全商品を徹底チェック。不良品ゼロを目標に、安心できる部品のみを提供します。</p>
+          <div class="mission-sep fade-up">×</div>
+          <div class="mission-item fade-up fade-up-delay-1">
+            <p class="mission-en">Revolution</p>
+            <p class="mission-ja">変革する</p>
           </div>
-          <div class="feature-card">
-            <p class="feature-num">03</p>
-            <h3>グローバル対応</h3>
-            <p>80カ国以上への輸出実績。多言語対応チームが海外のお客様のご要望にも迅速に対応します。</p>
+          <div class="mission-sep fade-up fade-up-delay-1">×</div>
+          <div class="mission-item fade-up fade-up-delay-2">
+            <p class="mission-en">Improve</p>
+            <p class="mission-ja">進化する</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta-section">
+    <!-- Business -->
+    <section class="section business-section">
       <div class="container">
-        <div class="cta-inner">
-          <div>
-            <h2 class="headline">新規取引先募集中</h2>
-            <p class="subheadline">まずはお気軽にご相談ください。</p>
-          </div>
-          <a href="/contact" class="btn-primary cta-btn">お問い合わせ</a>
+        <p class="section-label fade-up">BUSINESS</p>
+        <h2 class="section-title fade-up">事業一覧</h2>
+        <div class="business-grid">
+          <a href="/business" class="biz-card fade-up">
+            <p class="biz-num">01</p>
+            <h3>メガキングドットコム</h3>
+            <p>中古自動車パーツの買取・販売。豊富な在庫と厳格な品質管理で国内外のお客様に対応。</p>
+            <span class="biz-link">詳しく見る →</span>
+          </a>
+          <a href="https://www.rakuten.co.jp/kig-ltd/" target="_blank" class="biz-card fade-up fade-up-delay-1">
+            <p class="biz-num">02</p>
+            <h3>楽天ストア</h3>
+            <p>楽天市場でのEC販売チャネル。オンラインで手軽に中古自動車パーツをご購入いただけます。</p>
+            <span class="biz-link">ストアへ →</span>
+          </a>
+          <a href="/business" class="biz-card fade-up fade-up-delay-2">
+            <p class="biz-num">03</p>
+            <h3>WEB事業部</h3>
+            <p>デジタルマーケティング、ネットショップ運営、チラシ・ポスター制作、データベース構築。</p>
+            <span class="biz-link">詳しく見る →</span>
+          </a>
+          <a href="/business" class="biz-card fade-up fade-up-delay-3">
+            <p class="biz-num">04</p>
+            <h3>オリジナル商品制作</h3>
+            <p>カスタム製品の開発・制作。お客様のニーズに合わせたオリジナル商品をご提供します。</p>
+            <span class="biz-link">詳しく見る →</span>
+          </a>
         </div>
       </div>
     </section>
+
+    <!-- About KIG -->
+    <section class="section about-section">
+      <div class="container about-inner">
+        <div class="about-text fade-up">
+          <p class="section-label">ABOUT KIG</p>
+          <h2 class="section-title">「K Improve Group」<br />に込めた想い</h2>
+          <p class="about-body">「温故知新」の融合スタイルで、人的つながりを重視した仕入れとデジタル販売手法を組み合わせています。規模のみを追わず、持続的な成長をもとに進化し続ける会社を目指しています。</p>
+          <div class="k-list">
+            <div class="k-item">
+              <span class="k-badge">King</span>
+              <span>新価値と新技術を先導できる組織に</span>
+            </div>
+            <div class="k-item">
+              <span class="k-badge">Keep</span>
+              <span>社会と環境の倫理を遵守する組織に</span>
+            </div>
+            <div class="k-item">
+              <span class="k-badge">Kind</span>
+              <span>お客様も仲間も笑顔になれる組織に</span>
+            </div>
+          </div>
+          <a href="/about" class="btn btn-outline-navy" style="margin-top:32px">会社情報を見る</a>
+        </div>
+        <div class="about-stats fade-up fade-up-delay-1">
+          <div class="stat-box">
+            <p class="stat-year">2010</p>
+            <p class="stat-label-text">年 設立</p>
+          </div>
+          <div class="stat-box">
+            <p class="stat-num">5<span>拠点</span></p>
+            <p class="stat-label-text">全国展開</p>
+          </div>
+          <div class="stat-box">
+            <p class="stat-num">8,000<span>万円</span></p>
+            <p class="stat-label-text">資本金</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Staff -->
+    <section class="section staff-section">
+      <div class="container">
+        <p class="section-label fade-up">STAFF</p>
+        <h2 class="section-title fade-up">スタッフ紹介</h2>
+        <div class="staff-grid">
+          {[
+            { name: '石井 浩子', role: 'WEBマーケティング' },
+            { name: '中本 学志', role: '広報戦略兼バイヤー' },
+            { name: '中嶋 創介', role: 'バイヤー' },
+            { name: '本岡 勇作', role: 'バイヤー兼商品管理' },
+            { name: '樋口 愛実', role: 'アカウントディレクター' },
+            { name: 'たっかん', role: '商品管理' },
+          ].map((s, i) => (
+            <div class={`staff-card fade-up ${i > 0 ? `fade-up-delay-${Math.min(i, 3)}` : ''}`}>
+              <div class="staff-avatar">
+                <span>{s.name.charAt(0)}</span>
+              </div>
+              <p class="staff-name">{s.name}</p>
+              <p class="staff-role">{s.role}</p>
+            </div>
+          ))}
+        </div>
+        <div class="staff-cta fade-up">
+          <a href="/staff" class="btn btn-outline-navy">スタッフ紹介を見る</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recruit CTA -->
+    <section class="recruit-cta">
+      <div class="container recruit-cta-inner fade-up">
+        <div>
+          <p class="section-label" style="color:rgba(255,255,255,0.6)">RECRUIT</p>
+          <h2 style="font-size:clamp(24px,3vw,36px);font-weight:700;color:#fff;letter-spacing:-0.02em;line-height:1.2">あなたのアイデアを<br />形にする会社</h2>
+          <p style="color:rgba(255,255,255,0.65);margin-top:12px;font-size:15px">創造性と好奇心を持ち続けて、情熱的に仕事を心から楽しむ仲間を募集しています。</p>
+        </div>
+        <a href="/recruit" class="btn btn-white">採用情報を見る</a>
+      </div>
+    </section>
+
   </main>
-
   <Footer />
 </Layout>
 
 <style>
   /* Hero */
   .hero {
-    background-color: #151414;
-    padding: 120px 0 100px;
-    position: relative;
+    background: linear-gradient(135deg, #0d1f6e 0%, #1e4fd8 100%);
+    padding: 100px 0 80px;
     overflow: hidden;
   }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -200px;
-    right: -200px;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(15, 44, 207, 0.3) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero .container {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 40px;
-  }
-
   .hero-inner {
-    max-width: 680px;
-  }
-
-  .eyebrow {
-    font-size: 13px;
-    font-weight: 500;
-    color: #2f5dff;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-  }
-
-  .headline {
-    margin-bottom: 24px;
-  }
-
-  .subheadline {
-    margin-bottom: 48px;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  .hero-badge {
-    text-align: right;
-    flex-shrink: 0;
-    border-left: 1px solid rgba(255,255,255,0.1);
-    padding-left: 48px;
-  }
-
-  .badge-num {
-    font-size: 72px;
-    font-weight: 700;
-    color: #ffffff;
-    line-height: 1;
-    letter-spacing: -0.03em;
-  }
-
-  .badge-num span {
-    font-size: 32px;
-    font-weight: 400;
-    color: rgba(255,255,255,0.5);
-  }
-
-  .badge-label {
-    font-size: 14px;
-    color: rgba(255,255,255,0.4);
-    margin-top: 8px;
-  }
-
-  /* Stats */
-  .stats {
-    background-color: #0f2ccf;
-    padding: 48px 0;
-  }
-
-  .stats-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
   }
-
-  .stat {
-    text-align: center;
-    padding: 16px;
-    border-right: 1px solid rgba(255,255,255,0.15);
+  .hero-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 20px;
   }
-
-  .stat:last-child {
-    border-right: none;
+  .hero-heading {
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin-bottom: 20px;
   }
-
-  .stat-num {
-    font-size: 40px;
-    font-weight: 700;
-    color: #ffffff;
-    letter-spacing: -0.02em;
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-outline-navy.hero-outline {
+    border-color: rgba(255,255,255,0.5);
+    color: #fff;
+  }
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .hero-card {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  .hero-card:hover {
+    background: rgba(255,255,255,0.16);
+    transform: translateX(6px);
+  }
+  .card-k {
+    font-size: 32px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.2);
     line-height: 1;
-    margin-bottom: 8px;
+    width: 40px;
+    flex-shrink: 0;
   }
-
-  .stat-num span {
-    font-size: 22px;
-    font-weight: 400;
+  .card-word {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    width: 80px;
   }
-
-  .stat-label {
-    font-size: 13px;
+  .card-desc {
+    font-size: 14px;
     color: rgba(255,255,255,0.6);
   }
 
-  /* Features */
-  .features {
-    background-color: #f1f0ef;
+  /* Mission */
+  .mission { background: #f8f9ff; }
+  .mission .section-title {
+    max-width: 700px;
+    margin-bottom: 56px;
+    line-height: 1.5;
   }
-
-  .section-eyebrow {
-    font-size: 12px;
-    font-weight: 600;
-    color: #0f2ccf;
-    letter-spacing: 0.15em;
-    margin-bottom: 16px;
-  }
-
-  .headline-dark {
-    margin-bottom: 60px;
-  }
-
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-  }
-
-  .feature-card {
-    background: #ffffff;
-    padding: 48px 40px;
-  }
-
-  .feature-num {
-    font-size: 13px;
-    font-weight: 600;
-    color: #0f2ccf;
-    letter-spacing: 0.05em;
-    margin-bottom: 24px;
-  }
-
-  .feature-card h3 {
-    font-size: 22px;
-    font-weight: 600;
-    color: #151414;
-    margin-bottom: 16px;
-    letter-spacing: -0.01em;
-  }
-
-  .feature-card p {
-    font-size: 15px;
-    color: #5a5a6a;
-    line-height: 1.8;
-  }
-
-  /* CTA */
-  .cta-section {
-    background-color: #151414;
-    padding: 80px 0;
-  }
-
-  .cta-inner {
+  .mission-grid {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 40px;
+    gap: 24px;
+    flex-wrap: wrap;
   }
-
-  .cta-btn {
+  .mission-item {
+    flex: 1;
+    min-width: 160px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .mission-en {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0d1f6e;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+  .mission-ja {
+    font-size: 14px;
+    color: #6b7280;
+  }
+  .mission-sep {
+    font-size: 28px;
+    color: #d1d5db;
+    font-weight: 300;
     flex-shrink: 0;
   }
 
+  /* Business */
+  .business-section { background: #fff; }
+  .business-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .biz-card {
+    display: block;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 36px 32px;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  }
+  .biz-card:hover {
+    border-color: #0d1f6e;
+    box-shadow: 0 8px 32px rgba(13,31,110,0.1);
+    transform: translateY(-4px);
+  }
+  .biz-num {
+    font-size: 12px;
+    font-weight: 600;
+    color: #0d1f6e;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+  .biz-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .biz-card p {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .biz-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: #0d1f6e;
+  }
+
+  /* About */
+  .about-section { background: #f8f9ff; }
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .about-body {
+    font-size: 15px;
+    color: #374151;
+    line-height: 1.85;
+    margin: 24px 0 32px;
+  }
+  .k-list { display: flex; flex-direction: column; gap: 16px; }
+  .k-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 14px;
+    color: #374151;
+  }
+  .k-badge {
+    background: #0d1f6e;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .about-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 56px;
+  }
+  .stat-box {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 28px 32px;
+  }
+  .stat-year {
+    font-size: 48px;
+    font-weight: 800;
+    color: #0d1f6e;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-num {
+    font-size: 40px;
+    font-weight: 800;
+    color: #0d1f6e;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-num span {
+    font-size: 20px;
+    font-weight: 500;
+    color: #6b7280;
+    margin-left: 4px;
+  }
+  .stat-label-text {
+    font-size: 13px;
+    color: #9ca3af;
+  }
+
+  /* Staff */
+  .staff-section { background: #fff; }
+  .staff-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .staff-card {
+    text-align: center;
+    padding: 32px 24px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .staff-card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    transform: translateY(-4px);
+  }
+  .staff-avatar {
+    width: 72px;
+    height: 72px;
+    background: #e8edf8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #0d1f6e;
+  }
+  .staff-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 6px;
+  }
+  .staff-role {
+    font-size: 13px;
+    color: #6b7280;
+  }
+  .staff-cta {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  /* Recruit CTA */
+  .recruit-cta {
+    background: linear-gradient(135deg, #0d1f6e 0%, #1e4fd8 100%);
+    padding: 80px 0;
+  }
+  .recruit-cta-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+  }
+  .btn-white {
+    background: #fff;
+    color: #0d1f6e;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .btn-white:hover { background: #f3f4f6; }
+
   @media (max-width: 768px) {
-    .hero .container {
-      flex-direction: column;
-    }
-    .hero-badge {
-      border-left: none;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-left: 0;
-      padding-top: 32px;
-      text-align: left;
-    }
-    .stats-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .stat {
-      border-right: none;
-      border-bottom: 1px solid rgba(255,255,255,0.15);
-    }
-    .features-grid {
-      grid-template-columns: 1fr;
-    }
-    .cta-inner {
-      flex-direction: column;
-      text-align: center;
-    }
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .business-grid { grid-template-columns: 1fr; }
+    .about-inner { grid-template-columns: 1fr; }
+    .staff-grid { grid-template-columns: repeat(2, 1fr); }
+    .recruit-cta-inner { flex-direction: column; text-align: center; }
   }
 </style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible')
+        observer.unobserve(entry.target)
+      }
+    })
+  }, { threshold: 0.1 })
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el))
+</script>

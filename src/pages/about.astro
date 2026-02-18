@@ -1,0 +1,345 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+---
+
+<Layout title="ABOUT - 企業情報">
+  <Header />
+  <main>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="breadcrumb"><a href="/">HOME</a> / ABOUT</p>
+        <h1 class="page-title">企業情報</h1>
+      </div>
+    </section>
+
+    <!-- Concept -->
+    <section class="section" id="concept">
+      <div class="container">
+        <p class="section-label fade-up">CONCEPT</p>
+        <h2 class="section-title fade-up">企業理念</h2>
+        <div class="concept-block fade-up">
+          <p class="concept-main">サスティナブルな変革と進化を遂げ続け、<br />業界を導く会社へ。</p>
+          <p class="concept-en">Leading × Revolution × Improve</p>
+        </div>
+        <div class="concept-grid">
+          <div class="concept-card fade-up">
+            <p class="concept-key">KING</p>
+            <p class="concept-sub">先導する</p>
+            <p>新価値と新技術を先導できる組織に。業界のトップランナーとして、常に革新的なサービスを提供します。</p>
+          </div>
+          <div class="concept-card fade-up fade-up-delay-1">
+            <p class="concept-key">KEEP</p>
+            <p class="concept-sub">持続する</p>
+            <p>社会と環境の倫理を遵守する組織に。持続的成長を通じて、社会への責任を果たします。</p>
+          </div>
+          <div class="concept-card fade-up fade-up-delay-2">
+            <p class="concept-key">KIND</p>
+            <p class="concept-sub">寄り添う</p>
+            <p>お客様も仲間も笑顔になれる組織に。顧客志向を大切に、温かいサービスを届けます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="section intro-section" id="introduction">
+      <div class="container">
+        <p class="section-label fade-up">INTRODUCTION</p>
+        <h2 class="section-title fade-up">会社紹介</h2>
+        <div class="intro-block">
+          <div class="intro-text fade-up">
+            <p class="intro-catch">No improve without lasting.<br />〜「進化」とは、「持続」から始まる〜</p>
+            <p>株式会社KIGは、中古自動車パーツの買取・販売を事業基盤として、EC運用・Web事業を幅広く展開しています。</p>
+            <p>「温故知新」の融合スタイルで、人的つながりを重視した仕入れとデジタル販売手法を組み合わせることで、業界における独自のポジションを確立しています。</p>
+            <p>規模のみを追わず、持続的な成長をもとに進化し続ける会社を目指し、年功序列制度の見直しやセカンドチャンス体制の導入など、社内環境の整備にも力を注いでいます。</p>
+          </div>
+          <div class="intro-services fade-up fade-up-delay-1">
+            <p class="services-title">主な事業領域</p>
+            <ul>
+              <li>中古自動車パーツの買取・販売</li>
+              <li>インターネット販売（楽天市場）</li>
+              <li>Web制作・デジタルマーケティング</li>
+              <li>ネットショップ運営</li>
+              <li>チラシ・ポスター制作</li>
+              <li>データベース構築</li>
+              <li>オリジナル商品制作</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Company Info -->
+    <section class="section" id="info">
+      <div class="container">
+        <p class="section-label fade-up">COMPANY INFO</p>
+        <h2 class="section-title fade-up">会社情報</h2>
+        <div class="info-table fade-up">
+          <div class="info-row">
+            <dt>会社名</dt>
+            <dd>株式会社KIG</dd>
+          </div>
+          <div class="info-row">
+            <dt>代表者</dt>
+            <dd>代表取締役　石井 浩子</dd>
+          </div>
+          <div class="info-row">
+            <dt>設立</dt>
+            <dd>2010年9月29日</dd>
+          </div>
+          <div class="info-row">
+            <dt>資本金</dt>
+            <dd>8,000万円</dd>
+          </div>
+          <div class="info-row">
+            <dt>本社</dt>
+            <dd>〒550-0002 大阪府大阪市西区江戸堀2丁目1-1 9階</dd>
+          </div>
+          <div class="info-row">
+            <dt>TEL / FAX</dt>
+            <dd>06-6225-1609 / 06-6225-1212</dd>
+          </div>
+          <div class="info-row">
+            <dt>営業時間</dt>
+            <dd>10:00〜18:00（定休日：土日祝）</dd>
+          </div>
+          <div class="info-row">
+            <dt>取引銀行</dt>
+            <dd>三井住友銀行、三菱東京UFJ銀行、みなと銀行</dd>
+          </div>
+          <div class="info-row">
+            <dt>古物商許可証</dt>
+            <dd>大阪府公安委員会　第622322204235号</dd>
+          </div>
+          <div class="info-row">
+            <dt>顧問</dt>
+            <dd>弁護士法人ALG&Associates、押田税理士事務所、行政書士佐川法務事務所</dd>
+          </div>
+        </div>
+
+        <h3 class="offices-title fade-up">営業所一覧</h3>
+        <div class="offices-grid">
+          {[
+            { name: '本社', addr: '〒550-0002 大阪府大阪市西区江戸堀2-1-1 9階', tel: '06-6225-1609' },
+            { name: '箕面第2営業所', addr: '〒562-0033 大阪府箕面市今宮3丁目2-3', tel: '072-727-3977' },
+            { name: '買取センター', addr: '〒562-0033 大阪府箕面市今宮3丁目9-24', tel: '0120-499-039' },
+            { name: '箕面営業所', addr: '〒562-0026 大阪府箕面市外院2丁目4-11', tel: '072-727-3971' },
+            { name: '九州支店', addr: '〒800-0217 福岡県北九州市小倉南区下曽根3-2-8', tel: '093-474-3955' },
+          ].map((o, i) => (
+            <div class={`office-card fade-up ${i > 0 ? `fade-up-delay-${Math.min(i,3)}` : ''}`}>
+              <p class="office-name">{o.name}</p>
+              <p class="office-addr">{o.addr}</p>
+              <p class="office-tel">TEL: {o.tel}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #0d1f6e 0%, #1e4fd8 100%);
+    padding: 60px 0;
+  }
+  .breadcrumb {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 16px;
+  }
+  .breadcrumb a { color: rgba(255,255,255,0.5); }
+  .page-title { color: #fff; }
+
+  .concept-block {
+    background: linear-gradient(135deg, #0d1f6e, #1e4fd8);
+    border-radius: 16px;
+    padding: 56px 48px;
+    margin: 40px 0 48px;
+    text-align: center;
+  }
+  .concept-main {
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+  .concept-en {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.08em;
+  }
+  .concept-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .concept-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 36px 28px;
+  }
+  .concept-key {
+    font-size: 28px;
+    font-weight: 800;
+    color: #0d1f6e;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+  .concept-sub {
+    font-size: 15px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 16px;
+  }
+  .concept-card p:last-child {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.8;
+  }
+
+  .intro-section { background: #f8f9ff; }
+  .intro-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    margin-top: 40px;
+    align-items: start;
+  }
+  .intro-catch {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0d1f6e;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+  .intro-text p {
+    font-size: 15px;
+    color: #374151;
+    line-height: 1.9;
+    margin-bottom: 16px;
+  }
+  .intro-services {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 36px 32px;
+  }
+  .services-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0d1f6e;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .intro-services ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .intro-services li {
+    font-size: 14px;
+    color: #374151;
+    padding-left: 16px;
+    position: relative;
+  }
+  .intro-services li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: #0d1f6e;
+    font-weight: 700;
+  }
+
+  .info-table {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 40px;
+    margin-bottom: 64px;
+  }
+  .info-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .info-row:last-child { border-bottom: none; }
+  .info-row dt {
+    background: #f8f9ff;
+    padding: 20px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    border-right: 1px solid #e5e7eb;
+  }
+  .info-row dd {
+    padding: 20px 24px;
+    font-size: 14px;
+    color: #374151;
+  }
+
+  .offices-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 32px;
+    letter-spacing: -0.01em;
+  }
+  .offices-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .office-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 24px;
+  }
+  .office-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0d1f6e;
+    margin-bottom: 8px;
+  }
+  .office-addr {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+  .office-tel {
+    font-size: 13px;
+    color: #374151;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .concept-grid { grid-template-columns: 1fr; }
+    .intro-block { grid-template-columns: 1fr; }
+    .info-row { grid-template-columns: 1fr; }
+    .info-row dt { border-right: none; border-bottom: 1px solid #e5e7eb; }
+    .offices-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible')
+        observer.unobserve(entry.target)
+      }
+    })
+  }, { threshold: 0.1 })
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el))
+</script>
