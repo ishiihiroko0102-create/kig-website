@@ -1,3 +1,5 @@
+import { next } from '@vercel/edge'
+
 export const config = {
   matcher: '/(.*)',
 }
@@ -9,11 +11,8 @@ export default function middleware(request) {
     const authValue = basicAuth.split(' ')[1]
     const [user, pwd] = atob(authValue).split(':')
 
-    const validUser = process.env.BASIC_AUTH_USER || 'kig'
-    const validPassword = process.env.BASIC_AUTH_PASSWORD || 'kig2024'
-
-    if (user === validUser && pwd === validPassword) {
-      return Response.next()
+    if (user === 'kig' && pwd === 'king2010') {
+      return next()
     }
   }
 
