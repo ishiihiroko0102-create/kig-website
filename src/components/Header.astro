@@ -2,15 +2,15 @@
 ---
 
 <header>
-  <nav>
-    <a href="/" class="logo">株式会社KIG</a>
+  <nav class="container">
+    <a href="/" class="logo">KIG</a>
     <div class="nav-links">
       <a href="/">ホーム</a>
       <a href="/about">企業情報</a>
       <a href="/business">事業内容</a>
       <a href="/recruit">採用</a>
-      <a href="/contact">お問い合わせ</a>
     </div>
+    <a href="/contact" class="nav-cta">お問い合わせ</a>
   </nav>
 </header>
 
@@ -19,44 +19,53 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    background-color: #151414;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   nav {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-    height: 52px;
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
   .logo {
-    font-size: 18px;
-    font-weight: 600;
-    color: #1d1d1f;
-    letter-spacing: -0.01em;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.08em;
   }
 
   .nav-links {
     display: flex;
-    gap: 32px;
+    gap: 36px;
   }
 
   .nav-links a {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 400;
-    color: #1d1d1f;
-    opacity: 0.8;
-    transition: opacity 0.2s ease;
+    color: rgba(255, 255, 255, 0.65);
+    transition: color 0.2s ease;
+    letter-spacing: 0.01em;
   }
 
   .nav-links a:hover {
-    opacity: 1;
+    color: #ffffff;
+  }
+
+  .nav-cta {
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    background: #0f2ccf;
+    padding: 8px 20px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+
+  .nav-cta:hover {
+    background: #0a20a0;
   }
 
   @media (max-width: 768px) {

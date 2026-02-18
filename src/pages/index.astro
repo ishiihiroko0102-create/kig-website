@@ -10,50 +10,84 @@ const title = 'ホーム'
   <Header />
 
   <main>
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
-      <div class="hero-inner">
-        <p class="hero-eyebrow">株式会社KIG</p>
-        <h1 class="headline-light">中古自動車部品の<br />信頼できるパートナー</h1>
-        <p class="subheadline-light">創業以来、品質と誠実さで業界をリード</p>
-        <div class="hero-actions">
-          <a href="/contact" class="btn-primary">お問い合わせ</a>
-          <a href="/business" class="btn-secondary-light">事業内容を見る</a>
+      <div class="container">
+        <div class="hero-inner">
+          <p class="eyebrow">中古自動車部品 × グローバル販売</p>
+          <h1 class="headline">信頼と品質で、<br />世界をつなぐ。</h1>
+          <p class="subheadline">創業以来、誠実さと技術力で業界をリード。<br />国内外のお客様に最高品質の部品をお届けします。</p>
+          <div class="hero-actions">
+            <a href="/contact" class="btn-primary">お問い合わせ</a>
+            <a href="/business" class="btn-outline">事業内容を見る</a>
+          </div>
+        </div>
+        <div class="hero-badge">
+          <p class="badge-num">30<span>年+</span></p>
+          <p class="badge-label">の業界実績</p>
         </div>
       </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Stats -->
+    <section class="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat">
+            <p class="stat-num">50,000<span>+</span></p>
+            <p class="stat-label">取扱部品点数</p>
+          </div>
+          <div class="stat">
+            <p class="stat-num">80<span>カ国+</span></p>
+            <p class="stat-label">輸出実績</p>
+          </div>
+          <div class="stat">
+            <p class="stat-num">99<span>%</span></p>
+            <p class="stat-label">顧客満足度</p>
+          </div>
+          <div class="stat">
+            <p class="stat-num">24<span>h</span></p>
+            <p class="stat-label">問い合わせ対応</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
     <section class="features section">
       <div class="container">
-        <h2 class="section-title headline">KIGの特徴</h2>
-        <p class="section-sub subheadline">品質・信頼・グローバル。それがKIGです。</p>
+        <p class="section-eyebrow">WHY KIG</p>
+        <h2 class="headline-dark">選ばれる理由</h2>
         <div class="features-grid">
           <div class="feature-card">
-            <div class="feature-icon">📦</div>
+            <p class="feature-num">01</p>
             <h3>豊富な在庫</h3>
-            <p>取扱部品数業界トップクラス。即日納品対応可能</p>
+            <p>取扱部品数業界トップクラス。国産・外国産問わず幅広い在庫を取り揃え、即日納品にも対応しています。</p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon">✅</div>
-            <h3>品質管理</h3>
-            <p>厳格なチェック基準。不良品ゼロを目指す</p>
+            <p class="feature-num">02</p>
+            <h3>厳格な品質管理</h3>
+            <p>独自の検品プロセスで全商品を徹底チェック。不良品ゼロを目標に、安心できる部品のみを提供します。</p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon">🌏</div>
+            <p class="feature-num">03</p>
             <h3>グローバル対応</h3>
-            <p>世界中への輸出実績。多言語サポート</p>
+            <p>80カ国以上への輸出実績。多言語対応チームが海外のお客様のご要望にも迅速に対応します。</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta section">
-      <div class="container cta-inner">
-        <h2 class="headline">新規取引先募集中</h2>
-        <p class="subheadline">ご質問・ご相談はお気軽にお問い合わせください</p>
-        <a href="/contact" class="btn-primary">今すぐ問い合わせ</a>
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-inner">
+          <div>
+            <h2 class="headline">新規取引先募集中</h2>
+            <p class="subheadline">まずはお気軽にご相談ください。</p>
+          </div>
+          <a href="/contact" class="btn-primary cta-btn">お問い合わせ</a>
+        </div>
       </div>
     </section>
   </main>
@@ -64,121 +98,216 @@ const title = 'ホーム'
 <style>
   /* Hero */
   .hero {
-    background-color: #1d1d1f;
-    min-height: 80vh;
+    background-color: #151414;
+    padding: 120px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(15, 44, 207, 0.3) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero .container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
   }
 
   .hero-inner {
-    padding: 80px 24px;
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 680px;
   }
 
-  .hero-eyebrow {
-    font-size: 17px;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.6);
-    letter-spacing: 0.02em;
-    margin-bottom: 16px;
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 500;
+    color: #2f5dff;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
   }
 
-  .hero-inner h1 {
-    margin-bottom: 20px;
+  .headline {
+    margin-bottom: 24px;
   }
 
-  .hero-inner p {
-    margin-bottom: 40px;
+  .subheadline {
+    margin-bottom: 48px;
   }
 
   .hero-actions {
     display: flex;
     gap: 16px;
-    justify-content: center;
     flex-wrap: wrap;
   }
 
-  .btn-secondary-light {
-    display: inline-block;
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 17px;
-    font-weight: 400;
-    padding: 12px 24px;
-    border-radius: 980px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    transition: all 0.2s ease;
+  .hero-badge {
+    text-align: right;
+    flex-shrink: 0;
+    border-left: 1px solid rgba(255,255,255,0.1);
+    padding-left: 48px;
   }
 
-  .btn-secondary-light:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.6);
+  .badge-num {
+    font-size: 72px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .badge-num span {
+    font-size: 32px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .badge-label {
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 8px;
+  }
+
+  /* Stats */
+  .stats {
+    background-color: #0f2ccf;
+    padding: 48px 0;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .stat {
+    text-align: center;
+    padding: 16px;
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .stat:last-child {
+    border-right: none;
+  }
+
+  .stat-num {
+    font-size: 40px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-num span {
+    font-size: 22px;
+    font-weight: 400;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
   }
 
   /* Features */
   .features {
-    background-color: #f5f5f7;
+    background-color: #f1f0ef;
   }
 
-  .section-title {
-    text-align: center;
-    margin-bottom: 12px;
+  .section-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    color: #0f2ccf;
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
   }
 
-  .section-sub {
-    text-align: center;
+  .headline-dark {
     margin-bottom: 60px;
   }
 
   .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 2px;
   }
 
   .feature-card {
     background: #ffffff;
-    border-radius: 18px;
-    padding: 40px 32px;
+    padding: 48px 40px;
   }
 
-  .feature-icon {
-    font-size: 40px;
-    margin-bottom: 20px;
+  .feature-num {
+    font-size: 13px;
+    font-weight: 600;
+    color: #0f2ccf;
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
   }
 
   .feature-card h3 {
-    font-size: 21px;
+    font-size: 22px;
     font-weight: 600;
-    color: #1d1d1f;
-    margin-bottom: 10px;
+    color: #151414;
+    margin-bottom: 16px;
     letter-spacing: -0.01em;
   }
 
   .feature-card p {
     font-size: 15px;
-    color: #6e6e73;
-    line-height: 1.6;
+    color: #5a5a6a;
+    line-height: 1.8;
   }
 
   /* CTA */
-  .cta {
-    background-color: #ffffff;
-    text-align: center;
+  .cta-section {
+    background-color: #151414;
+    padding: 80px 0;
   }
 
   .cta-inner {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 20px;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .cta-btn {
+    flex-shrink: 0;
   }
 
   @media (max-width: 768px) {
+    .hero .container {
+      flex-direction: column;
+    }
+    .hero-badge {
+      border-left: none;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-left: 0;
+      padding-top: 32px;
+      text-align: left;
+    }
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .stat {
+      border-right: none;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
     .features-grid {
       grid-template-columns: 1fr;
+    }
+    .cta-inner {
+      flex-direction: column;
+      text-align: center;
     }
   }
 </style>

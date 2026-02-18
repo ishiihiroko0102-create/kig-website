@@ -2,104 +2,125 @@
 ---
 
 <footer>
-  <div class="footer-inner">
+  <div class="container">
     <div class="footer-top">
-      <div class="footer-col">
-        <p class="footer-brand">株式会社KIG</p>
-        <p class="footer-tagline">No improve without lasting</p>
+      <div class="footer-brand">
+        <p class="logo">KIG</p>
+        <p class="tagline">No improve without lasting</p>
+        <p class="desc">中古自動車部品の国内・海外販売を中心に、<br />Web制作まで幅広く事業を展開しています。</p>
       </div>
-      <div class="footer-col">
-        <p class="footer-heading">事業</p>
-        <ul>
-          <li><a href="#">MegaKing.com</a></li>
-          <li><a href="#">楽天店舗</a></li>
-          <li><a href="#">Web制作</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <p class="footer-heading">サポート</p>
-        <ul>
-          <li><a href="/contact">お問い合わせ</a></li>
-          <li><a href="#">よくある質問</a></li>
-        </ul>
+      <div class="footer-links">
+        <div>
+          <p class="footer-heading">事業</p>
+          <ul>
+            <li><a href="#">MegaKing.com</a></li>
+            <li><a href="#">楽天店舗</a></li>
+            <li><a href="#">Web制作</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-heading">会社</p>
+          <ul>
+            <li><a href="/about">企業情報</a></li>
+            <li><a href="/recruit">採用情報</a></li>
+            <li><a href="/contact">お問い合わせ</a></li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>Copyright &copy; 2024 株式会社KIG. All rights reserved.</p>
+      <p>&copy; 2024 株式会社KIG. All rights reserved.</p>
     </div>
   </div>
 </footer>
 
 <style>
   footer {
-    background-color: #f5f5f7;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-    margin-top: 80px;
-  }
-
-  .footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 48px 24px 24px;
+    background-color: #151414;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 0;
+    padding: 80px 0 32px;
   }
 
   .footer-top {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    margin-bottom: 60px;
   }
 
   .footer-brand {
-    font-size: 15px;
-    font-weight: 600;
-    color: #1d1d1f;
-    margin-bottom: 6px;
+    max-width: 320px;
   }
 
-  .footer-tagline {
+  .logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+
+  .tagline {
     font-size: 13px;
-    color: #6e6e73;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+
+  .desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 60px;
   }
 
   .footer-heading {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
-    color: #1d1d1f;
-    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
   }
 
   ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
   }
 
   ul a {
-    font-size: 13px;
-    color: #6e6e73;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.55);
     transition: color 0.2s ease;
   }
 
   ul a:hover {
-    color: #1d1d1f;
+    color: #ffffff;
   }
 
   .footer-bottom {
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 24px;
   }
 
   .footer-bottom p {
-    font-size: 12px;
-    color: #6e6e73;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.3);
   }
 
   @media (max-width: 768px) {
     .footer-top {
-      grid-template-columns: 1fr;
-      gap: 24px;
+      flex-direction: column;
+    }
+    .footer-links {
+      gap: 40px;
     }
   }
 </style>
