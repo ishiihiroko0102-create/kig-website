@@ -13,6 +13,18 @@
   --gray-100: #f3f4f6;
   --white: #ffffff;
   --font: 'Inter', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
+
+  /* Design Concept Colors - MDS Fund Style */
+  --mds-bg-primary: #FFFFFF;
+  --mds-bg-secondary: #F5F7FA;
+  --mds-text-primary: #1a202c;
+  --mds-text-secondary: #4a5568;
+  --mds-text-tertiary: #718096;
+  --mds-accent-blue: #0066cc;
+  --mds-accent-light: #e6f0ff;
+  --mds-border: #e2e8f0;
+  --mds-gold: #d4af37;
+  --mds-hover: #004d99;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
