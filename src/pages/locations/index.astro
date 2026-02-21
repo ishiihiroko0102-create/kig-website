@@ -13,7 +13,31 @@ import Footer from '../../components/Footer.astro'
       <div class="container">
         <p class="breadcrumb"><a href="/">HOME</a> / 営業所</p>
         <h1 class="page-title">営業所一覧</h1>
-        <p class="page-sub">全国対応の営業所がお客様をお待ちしています</p>
+        <p class="page-sub">お客様のご場所に最も近い営業所でご対応いたします</p>
+      </div>
+    </section>
+
+    <!-- Quick Guide -->
+    <section class="section quick-guide">
+      <div class="container">
+        <h2 class="guide-title fade-up">営業所の選び方</h2>
+        <div class="guide-grid fade-up">
+          <div class="guide-card">
+            <div class="guide-icon">📍</div>
+            <h3>地域で選ぶ</h3>
+            <p>大阪にお住まいなら大阪の営業所へ。九州地方なら九州支店へお問い合わせください。</p>
+          </div>
+          <div class="guide-card">
+            <div class="guide-icon">🚚</div>
+            <h3>出張買取がご希望なら</h3>
+            <p>全営業所で関西全域または九州全域への出張買取に対応しています。</p>
+          </div>
+          <div class="guide-card">
+            <div class="guide-icon">🏢</div>
+            <h3>ご来社での買取なら</h3>
+            <p>お近くの営業所に直接ご持参いただくことも可能です。</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -21,25 +45,48 @@ import Footer from '../../components/Footer.astro'
     <section class="section locations-section">
       <div class="container">
         <h2 class="region-title fade-up">大阪の営業所</h2>
+        <p class="region-desc fade-up">関西全域（大阪・兵庫・京都・奈良・和歌山）対応 | 出張買取・持ち込み買取・即日対応</p>
+
         <div class="locations-grid fade-up">
           <a href="/locations/osaka-honsha" class="office-card">
+            <div class="office-badge">本社</div>
             <h3>本社</h3>
-            <p class="office-address">〒550-0002 大阪府大阪市西区江戸堀2-1-1 9階</p>
-            <p class="office-phone"><a href="tel:0662251609">06-6225-1609</a></p>
+            <p class="office-desc">関西地域の営業統括拠点。江戸堀の中心部に位置し、アクセス良好です。</p>
+            <p class="office-address">
+              <span class="icon">📍</span>
+              〒550-0002 大阪府大阪市西区江戸堀2-1-1 9階
+            </p>
+            <p class="office-phone">
+              <a href="tel:0662251609">📞 06-6225-1609</a>
+            </p>
             <span class="office-link">詳しく見る →</span>
           </a>
 
           <a href="/locations/osaka-minoh-dai2" class="office-card">
+            <div class="office-badge">営業所</div>
             <h3>箕面第2営業所</h3>
-            <p class="office-address">〒562-0033 大阪府箕面市今宮3丁目2-3</p>
-            <p class="office-phone"><a href="tel:07272793977">072-727-3977</a></p>
+            <p class="office-desc">箕面市に位置し、大型パーツの保管・対応に強い施設です。</p>
+            <p class="office-address">
+              <span class="icon">📍</span>
+              〒562-0033 大阪府箕面市今宮3丁目2-3
+            </p>
+            <p class="office-phone">
+              <a href="tel:07272793977">📞 072-727-3977</a>
+            </p>
             <span class="office-link">詳しく見る →</span>
           </a>
 
           <a href="/locations/osaka-kaitori-center" class="office-card">
+            <div class="office-badge">買取</div>
             <h3>買取センター</h3>
-            <p class="office-address">〒562-0033 大阪府箕面市今宮3丁目9-24</p>
-            <p class="office-phone"><a href="tel:07272793966">072-727-3966</a></p>
+            <p class="office-desc">買取専門施設。大量買取に特化した効率的な査定・買取対応。</p>
+            <p class="office-address">
+              <span class="icon">📍</span>
+              〒562-0033 大阪府箕面市今宮3丁目9-24
+            </p>
+            <p class="office-phone">
+              <a href="tel:07272793966">📞 072-727-3966</a>
+            </p>
             <span class="office-link">詳しく見る →</span>
           </a>
         </div>
@@ -50,11 +97,20 @@ import Footer from '../../components/Footer.astro'
     <section class="section locations-section other-regions">
       <div class="container">
         <h2 class="region-title fade-up">その他の拠点</h2>
+        <p class="region-desc fade-up">九州全域（福岡・佐賀・長崎・熊本・大分・宮崎・鹿児島）対応</p>
+
         <div class="locations-grid fade-up">
           <a href="/locations/kyushu" class="office-card">
+            <div class="office-badge">支店</div>
             <h3>九州支店</h3>
-            <p class="office-address">〒800-0217 福岡県北九州市小倉南区下曽根3-2-8</p>
-            <p class="office-phone"><a href="tel:0934743955">093-474-3955</a></p>
+            <p class="office-desc">福岡に位置し、九州全域の自動車パーツ買取に対応。大型倉庫施設備有。</p>
+            <p class="office-address">
+              <span class="icon">📍</span>
+              〒800-0217 福岡県北九州市小倉南区下曽根3-2-8
+            </p>
+            <p class="office-phone">
+              <a href="tel:0934743955">📞 093-474-3955</a>
+            </p>
             <span class="office-link">詳しく見る →</span>
           </a>
         </div>
@@ -90,6 +146,49 @@ import Footer from '../../components/Footer.astro'
   .page-title { color: #fff; margin-bottom: 12px; }
   .page-sub { color: rgba(255,255,255,0.65); font-size: 16px; }
 
+  /* Quick Guide Section */
+  .quick-guide { background: #f8f9ff; padding: 80px 0; }
+  .guide-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 48px;
+    text-align: center;
+  }
+  .guide-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .guide-card {
+    padding: 32px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  .guide-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border-color: #0066cc;
+  }
+  .guide-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+  }
+  .guide-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 12px;
+  }
+  .guide-card p {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.7;
+  }
+
   .locations-section { background: #fff; padding: 80px 0; }
   .other-regions { background: #f8f9ff; }
 
@@ -97,16 +196,22 @@ import Footer from '../../components/Footer.astro'
     font-size: 28px;
     font-weight: 700;
     color: #111827;
+    margin-bottom: 12px;
+  }
+  .region-desc {
+    font-size: 14px;
+    color: #6b7280;
     margin-bottom: 40px;
+    text-align: center;
   }
 
   .locations-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 28px;
   }
   .office-card {
-    padding: 32px;
+    padding: 28px;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     transition: all 0.3s ease;
@@ -114,31 +219,62 @@ import Footer from '../../components/Footer.astro'
     flex-direction: column;
     gap: 12px;
     text-decoration: none;
+    position: relative;
   }
   .office-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 32px rgba(0,0,0,0.1);
     border-color: #0066cc;
   }
+  .office-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #0066cc;
+    background: #e8edf8;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    width: fit-content;
+  }
   .office-card h3 {
     font-size: 18px;
     font-weight: 700;
     color: #111827;
+    margin: 0;
   }
-  .office-address {
-    font-size: 14px;
+  .office-desc {
+    font-size: 13px;
     color: #6b7280;
     line-height: 1.6;
     margin: 0;
   }
+  .office-address {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .office-address .icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
   .office-phone {
     font-size: 14px;
     margin: 0;
+    font-weight: 600;
   }
   .office-phone a {
     color: #0066cc;
     font-weight: 600;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
   .office-phone a:hover {
     text-decoration: underline;
@@ -147,7 +283,7 @@ import Footer from '../../components/Footer.astro'
     font-size: 13px;
     font-weight: 600;
     color: #0066cc;
-    margin-top: 8px;
+    margin-top: auto;
   }
 
   .contact-cta {
@@ -179,10 +315,12 @@ import Footer from '../../components/Footer.astro'
   .btn-white:hover { background: #f3f4f6; }
 
   @media (max-width: 1024px) {
-    .locations-grid { grid-template-columns: 1fr; }
+    .guide-grid { grid-template-columns: 1fr; }
+    .locations-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
   }
 
   @media (max-width: 768px) {
+    .guide-grid { grid-template-columns: 1fr; }
     .locations-grid { grid-template-columns: 1fr; }
     .contact-cta-inner { flex-direction: column; text-align: center; }
   }
