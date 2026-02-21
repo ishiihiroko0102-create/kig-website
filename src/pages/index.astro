@@ -98,6 +98,31 @@ import Footer from '../components/Footer.astro'
       </div>
     </section>
 
+    <!-- Locations -->
+    <section class="section locations-section">
+      <div class="container">
+        <p class="section-label fade-up">LOCATIONS</p>
+        <h2 class="section-title fade-up">営業所のご案内</h2>
+        <div class="locations-preview">
+          <a href="/locations/osaka" class="location-preview-card fade-up">
+            <div class="location-preview-icon">🏢</div>
+            <h3>大阪営業所</h3>
+            <p>関西地域対応</p>
+            <span class="location-preview-link">詳しく見る →</span>
+          </a>
+          <a href="/locations/kyushu" class="location-preview-card fade-up fade-up-delay-1">
+            <div class="location-preview-icon">🏛️</div>
+            <h3>九州支店</h3>
+            <p>九州全域対応</p>
+            <span class="location-preview-link">詳しく見る →</span>
+          </a>
+        </div>
+        <div class="locations-cta fade-up">
+          <a href="/locations" class="btn btn-outline-navy">全営業所を見る</a>
+        </div>
+      </div>
+    </section>
+
     <!-- EC Platforms -->
     <section class="section ec-section">
       <div class="container">
@@ -559,6 +584,56 @@ import Footer from '../components/Footer.astro'
     margin-top: 40px;
   }
 
+  /* Locations */
+  .locations-section { background: #fff; }
+  .locations-preview {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    margin-top: 48px;
+  }
+  .location-preview-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 32px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #f8f9ff;
+    transition: all 0.3s ease;
+  }
+  .location-preview-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    border-color: #0066cc;
+    background: #fff;
+  }
+  .location-preview-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+  .location-preview-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+  }
+  .location-preview-card p {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 16px;
+  }
+  .location-preview-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: #0066cc;
+  }
+  .locations-cta {
+    text-align: center;
+    margin-top: 40px;
+  }
+
   /* EC Platforms */
   .ec-section { background: #f8f9ff; }
   .ec-platforms {
@@ -705,6 +780,7 @@ import Footer from '../components/Footer.astro'
   @media (max-width: 1024px) {
     .news-grid { grid-template-columns: repeat(2, 1fr); }
     .ec-platforms { grid-template-columns: repeat(2, 1fr); }
+    .locations-preview { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 768px) {
@@ -717,6 +793,7 @@ import Footer from '../components/Footer.astro'
     .staff-grid { grid-template-columns: repeat(2, 1fr); }
     .news-grid { grid-template-columns: 1fr; }
     .ec-platforms { grid-template-columns: 1fr; }
+    .locations-preview { grid-template-columns: 1fr; }
     .recruit-cta-inner { flex-direction: column; text-align: center; }
   }
 </style>

@@ -1,0 +1,160 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Header from '../../components/Header.astro'
+import Footer from '../../components/Footer.astro'
+---
+
+<Layout title="営業所一覧 - 全国対応">
+  <Header />
+  <main>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="breadcrumb"><a href="/">HOME</a> / 営業所</p>
+        <h1 class="page-title">営業所一覧</h1>
+        <p class="page-sub">大阪・九州を中心に全国対応。お近くの営業所にお気軽にお問い合わせください。</p>
+      </div>
+    </section>
+
+    <!-- Locations Grid -->
+    <section class="section locations-section">
+      <div class="container">
+        <div class="locations-grid">
+          <a href="/locations/osaka" class="location-card fade-up">
+            <div class="location-icon">🏢</div>
+            <h3>大阪営業所</h3>
+            <p class="location-region">関西地域</p>
+            <p class="location-desc">大阪・兵庫・京都・奈良・和歌山に対応。本社を含む複数の営業所があります。</p>
+            <span class="location-link">詳しく見る →</span>
+          </a>
+          <a href="/locations/kyushu" class="location-card fade-up fade-up-delay-1">
+            <div class="location-icon">🏛️</div>
+            <h3>九州支店</h3>
+            <p class="location-region">九州地域</p>
+            <p class="location-desc">福岡・佐賀・長崎・熊本・大分・宮崎・鹿児島に対応。九州全域の買取に対応しています。</p>
+            <span class="location-link">詳しく見る →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-cta">
+      <div class="container contact-cta-inner fade-up">
+        <div>
+          <h2>お近くの営業所にお問い合わせください</h2>
+          <p>自動車パーツの買取・販売に関するご質問や、お見積もりはお気軽にお問い合わせください。</p>
+        </div>
+        <a href="/contact" class="btn btn-navy">お問い合わせ</a>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #0d1f6e 0%, #1e4fd8 100%);
+    padding: 60px 0;
+  }
+  .breadcrumb {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 16px;
+  }
+  .breadcrumb a { color: rgba(255,255,255,0.5); }
+  .page-title { color: #fff; margin-bottom: 12px; }
+  .page-sub { color: rgba(255,255,255,0.65); font-size: 16px; }
+
+  .locations-section { background: #fff; }
+  .locations-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+  }
+  .location-card {
+    display: flex;
+    flex-direction: column;
+    padding: 48px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+  .location-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(13,31,110,0.12);
+    border-color: #0066cc;
+  }
+  .location-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+  .location-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+  }
+  .location-region {
+    font-size: 13px;
+    color: #0066cc;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .location-desc {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.7;
+    margin-bottom: 24px;
+    flex: 1;
+  }
+  .location-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0066cc;
+  }
+
+  .contact-cta {
+    background: linear-gradient(135deg, #0d1f6e 0%, #1e4fd8 100%);
+    padding: 80px 0;
+  }
+  .contact-cta-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+  }
+  .contact-cta-inner h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .contact-cta-inner p {
+    color: rgba(255,255,255,0.7);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .locations-grid { grid-template-columns: 1fr; }
+    .contact-cta-inner { flex-direction: column; text-align: center; }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible')
+        observer.unobserve(entry.target)
+      }
+    })
+  }, { threshold: 0.1 })
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el))
+</script>
