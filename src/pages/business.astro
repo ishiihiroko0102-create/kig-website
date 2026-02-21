@@ -4,33 +4,41 @@ import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 ---
 
-<Layout title="事業一覧">
+<Layout title="事業紹介">
   <Header />
   <main>
     <section class="page-hero">
       <div class="container">
-        <p class="breadcrumb"><a href="/">HOME</a> / 事業一覧</p>
-        <h1 class="page-title">事業一覧</h1>
-        <p class="page-sub">KIGが展開する4つの事業をご紹介します。</p>
+        <p class="breadcrumb"><a href="/">HOME</a> / 事業紹介</p>
+        <h1 class="page-title">事業紹介</h1>
+        <p class="page-sub">複数事業を統括するKIG グループが展開する事業をご紹介します。</p>
       </div>
     </section>
 
     <section class="section business-section">
       <div class="container">
         <p class="section-label fade-up">OUR BUSINESS</p>
-        <h2 class="section-title fade-up">事業紹介</h2>
+        <h2 class="section-title fade-up">ホールディングス事業構成</h2>
+        <p class="section-desc fade-up">株式会社KIGは、複数の事業柱を持つホールディングス企業です。各事業が専門性を発揮しながら、シナジーを生み出しています。</p>
+
+        <div class="business-hero-images fade-up">
+          <img src="https://images.unsplash.com/photo-1590080876-35a6adf42b4f?w=600&h=300&fit=crop" alt="倉庫業務" class="biz-img-1" />
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=300&fit=crop" alt="品質管理" class="biz-img-2" />
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=300&fit=crop" alt="販売業務" class="biz-img-3" />
+        </div>
 
         <div class="biz-grid">
         <div class="biz-block fade-up">
           <div class="biz-header">
             <span class="biz-num">01</span>
             <div>
-              <h2>メガキングドットコム</h2>
-              <p class="biz-url"><a href="http://mega-king.com/kaitori/" target="_blank">mega-king.com →</a></p>
+              <h2>自動車部品事業</h2>
+              <p class="biz-category">中古自動車パーツの買取・販売</p>
             </div>
           </div>
           <div class="biz-content">
-            <p>中古自動車パーツの買取・販売を手がけるメインサービス。豊富な在庫と厳格な品質管理で、国内外の整備工場・チューニングショップ・一般ユーザーまで幅広いお客様にご利用いただいています。</p>
+            <p>自動車中古部品の買取・販売を基幹事業とします。豊富な在庫と厳格な品質管理で、国内外の整備工場・チューニングショップ・一般ユーザーまで幅広いお客様にご利用いただいています。</p>
+            <p class="biz-highlight"><strong>メガキングドットコム</strong>（自社ECサイト）をはじめ、複数の販売チャネルを展開しています。</p>
             <div class="biz-features">
               <div class="biz-feat">
                 <p class="feat-title">豊富な在庫</p>
@@ -52,24 +60,24 @@ import Footer from '../components/Footer.astro'
           <div class="biz-header">
             <span class="biz-num">02</span>
             <div>
-              <h2>メガキングドットコム楽天ストア</h2>
-              <p class="biz-url"><a href="https://www.rakuten.co.jp/kig-ltd/" target="_blank">楽天市場ストアへ →</a></p>
+              <h2>EC運営事業</h2>
+              <p class="biz-category">複数プラットフォーム統合管理</p>
             </div>
           </div>
           <div class="biz-content">
-            <p>楽天市場でのEC販売チャネル。オンラインで手軽に中古自動車パーツをご購入いただけます。全国への配送に対応しており、安心して取引いただける環境を整えています。</p>
+            <p>複数のECプラットフォームでの販売運営を統括。楽天市場、Yahoo!オークション、Yahoo!ショッピングなど、多様な販売チャネルを一括管理し、より多くのお客様にリーチしています。</p>
             <div class="biz-features">
               <div class="biz-feat">
-                <p class="feat-title">全国配送対応</p>
-                <p>日本全国どこでもお届けします。</p>
+                <p class="feat-title">楽天市場</p>
+                <p>安心の楽天購入保護、充実した配送体制で全国対応。</p>
               </div>
               <div class="biz-feat">
-                <p class="feat-title">楽天の安心保証</p>
-                <p>楽天市場の購入保護サービスをご利用いただけます。</p>
+                <p class="feat-title">Yahoo!オークション</p>
+                <p>競りの楽しみと透明性のある取引環境を提供。</p>
               </div>
               <div class="biz-feat">
-                <p class="feat-title">豊富な商品ラインナップ</p>
-                <p>実店舗同様の商品をオンラインでご購入いただけます。</p>
+                <p class="feat-title">Yahoo!ショッピング</p>
+                <p>PayPay連携など最新の決済手段に対応した販売チャネル。</p>
               </div>
             </div>
           </div>
@@ -80,10 +88,11 @@ import Footer from '../components/Footer.astro'
             <span class="biz-num">03</span>
             <div>
               <h2>WEB事業部</h2>
+              <p class="biz-category">デジタルマーケティング・企画制作</p>
             </div>
           </div>
           <div class="biz-content">
-            <p>デジタルマーケティングを中心に、Webに関するあらゆるソリューションを提供します。自社の知見を活かし、クライアントのデジタル戦略を支援します。</p>
+            <p>デジタルマーケティングを中心に、Webに関するあらゆるソリューションを提供します。自社のEC運営で培った知見を活かし、クライアントのデジタル戦略・ブランディングを支援する専門部門です。</p>
             <div class="biz-features">
               <div class="biz-feat">
                 <p class="feat-title">ネットショップ運営</p>
@@ -105,11 +114,12 @@ import Footer from '../components/Footer.astro'
           <div class="biz-header">
             <span class="biz-num">04</span>
             <div>
-              <h2>オリジナル商品制作</h2>
+              <h2>その他事業</h2>
+              <p class="biz-category">オリジナル商品制作・企画</p>
             </div>
           </div>
           <div class="biz-content">
-            <p>お客様のニーズに合わせたオリジナル商品の開発・制作を手がけます。アイデアの段階からご相談いただき、形にするお手伝いをします。</p>
+            <p>お客様のニーズに合わせたオリジナル商品の開発・制作を手がけます。アイデアの段階からご相談いただき、形にするお手伝いをします。複数事業での知見を活かし、最適なソリューションをご提案します。</p>
             <div class="biz-features">
               <div class="biz-feat">
                 <p class="feat-title">カスタム製品開発</p>
@@ -145,6 +155,33 @@ import Footer from '../components/Footer.astro'
   .page-sub { color: rgba(255,255,255,0.65); font-size: 16px; }
 
   .business-section { background: #fff; }
+  .section-desc {
+    font-size: 15px;
+    color: #6b7280;
+    line-height: 1.8;
+    margin-top: 16px;
+    margin-bottom: 48px;
+    max-width: 700px;
+  }
+  .business-hero-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 48px 0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .business-hero-images img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+  }
+  .business-hero-images img:hover {
+    transform: scale(1.05);
+  }
   .biz-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -200,10 +237,26 @@ import Footer from '../components/Footer.astro'
     letter-spacing: -0.01em;
     margin-bottom: 6px;
   }
+  .biz-category {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 500;
+    margin-bottom: 0;
+  }
   .biz-url a {
     font-size: 13px;
     color: #1e4fd8;
     font-weight: 500;
+  }
+  .biz-highlight {
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.8;
+    margin-top: 12px;
+    padding: 12px;
+    background: #f3f4f6;
+    border-left: 3px solid #0066cc;
+    border-radius: 4px;
   }
   .biz-content > p {
     font-size: 15px;
@@ -235,12 +288,15 @@ import Footer from '../components/Footer.astro'
 
   @media (max-width: 1024px) {
     .biz-grid { grid-template-columns: 1fr; }
+    .business-hero-images { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 768px) {
     .biz-block { padding: 28px 20px; }
     .biz-features { grid-template-columns: 1fr; }
     .biz-header { flex-direction: column; }
+    .business-hero-images { grid-template-columns: 1fr; }
+    .business-hero-images img { height: 200px; }
   }
 </style>
 

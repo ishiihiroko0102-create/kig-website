@@ -68,31 +68,65 @@ import Footer from '../components/Footer.astro'
     <section class="section business-section">
       <div class="container">
         <p class="section-label fade-up">BUSINESS</p>
-        <h2 class="section-title fade-up">事業一覧</h2>
+        <h2 class="section-title fade-up">事業紹介</h2>
         <div class="business-grid">
           <a href="/business" class="biz-card fade-up">
             <p class="biz-num">01</p>
-            <h3>メガキングドットコム</h3>
+            <h3>自動車部品事業</h3>
             <p>中古自動車パーツの買取・販売。豊富な在庫と厳格な品質管理で国内外のお客様に対応。</p>
             <span class="biz-link">詳しく見る →</span>
           </a>
-          <a href="https://www.rakuten.co.jp/kig-ltd/" target="_blank" class="biz-card fade-up fade-up-delay-1">
+          <a href="/business" class="biz-card fade-up fade-up-delay-1">
             <p class="biz-num">02</p>
-            <h3>楽天ストア</h3>
-            <p>楽天市場でのEC販売チャネル。オンラインで手軽に中古自動車パーツをご購入いただけます。</p>
-            <span class="biz-link">ストアへ →</span>
+            <h3>EC運営事業</h3>
+            <p>楽天市場、Yahoo!オークション、Yahoo!ショッピングなど複数プラットフォームを統合運営。</p>
+            <span class="biz-link">詳しく見る →</span>
           </a>
           <a href="/business" class="biz-card fade-up fade-up-delay-2">
             <p class="biz-num">03</p>
             <h3>WEB事業部</h3>
-            <p>デジタルマーケティング、ネットショップ運営、チラシ・ポスター制作、データベース構築。</p>
+            <p>デジタルマーケティング、ネットショップ運営、企画制作、データベース構築に対応。</p>
             <span class="biz-link">詳しく見る →</span>
           </a>
           <a href="/business" class="biz-card fade-up fade-up-delay-3">
             <p class="biz-num">04</p>
-            <h3>オリジナル商品制作</h3>
-            <p>カスタム製品の開発・制作。お客様のニーズに合わせたオリジナル商品をご提供します。</p>
+            <h3>その他事業</h3>
+            <p>オリジナル商品制作など。複数事業での知見を活かし最適なソリューションを提案します。</p>
             <span class="biz-link">詳しく見る →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- EC Platforms -->
+    <section class="section ec-section">
+      <div class="container">
+        <p class="section-label fade-up">SHOPPING</p>
+        <h2 class="section-title fade-up">複数のECプラットフォームでお買い物いただけます</h2>
+        <div class="ec-platforms">
+          <a href="http://mega-king.com/kaitori/" target="_blank" class="ec-card fade-up">
+            <div class="ec-icon">🌐</div>
+            <h3>メガキング<br />ドットコム</h3>
+            <p>自社EC販売サイト</p>
+            <span class="ec-link">サイトへ →</span>
+          </a>
+          <a href="https://www.rakuten.co.jp/kig-ltd/" target="_blank" class="ec-card fade-up fade-up-delay-1">
+            <div class="ec-icon">🛍️</div>
+            <h3>楽天<br />ストア</h3>
+            <p>安心の楽天購入保護</p>
+            <span class="ec-link">ストアへ →</span>
+          </a>
+          <a href="https://auctions.yahoo.co.jp/seller/kig_kaitori" target="_blank" class="ec-card fade-up fade-up-delay-2">
+            <div class="ec-icon">🏷️</div>
+            <h3>Yahoo!<br />オークション</h3>
+            <p>競りで手頃な価格を実現</p>
+            <span class="ec-link">ストアへ →</span>
+          </a>
+          <a href="https://shopping.yahoo.co.jp/search?seller_id=kig" target="_blank" class="ec-card fade-up fade-up-delay-3">
+            <div class="ec-icon">💳</div>
+            <h3>Yahoo!<br />ショッピング</h3>
+            <p>PayPay連携で便利に</p>
+            <span class="ec-link">ストアへ →</span>
           </a>
         </div>
       </div>
@@ -101,7 +135,10 @@ import Footer from '../components/Footer.astro'
     <!-- About KIG -->
     <section class="section about-section">
       <div class="container about-inner">
-        <div class="about-text fade-up">
+        <div class="about-image fade-up">
+          <img src="https://images.unsplash.com/photo-1553642212-5671ae20c75b?w=500&h=400&fit=crop" alt="企業イメージ" />
+        </div>
+        <div class="about-text fade-up fade-up-delay-1">
           <p class="section-label">ABOUT KIG</p>
           <h2 class="section-title">「K Improve Group」<br />に込めた想い</h2>
           <p class="about-body">「温故知新」の融合スタイルで、人的つながりを重視した仕入れとデジタル販売手法を組み合わせています。規模のみを追わず、持続的な成長をもとに進化し続ける会社を目指しています。</p>
@@ -121,7 +158,7 @@ import Footer from '../components/Footer.astro'
           </div>
           <a href="/about" class="btn btn-outline-navy" style="margin-top:32px">会社情報を見る</a>
         </div>
-        <div class="about-stats fade-up fade-up-delay-1">
+        <div class="about-stats fade-up">
           <div class="stat-box">
             <p class="stat-year">2010</p>
             <p class="stat-label-text">年 設立</p>
@@ -394,7 +431,24 @@ import Footer from '../components/Footer.astro'
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
-    align-items: start;
+    align-items: center;
+  }
+  .about-image {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+  .about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .about-text {
+    order: 2;
+  }
+  .about-image {
+    order: 1;
   }
   .about-body {
     font-size: 15px;
@@ -505,6 +559,52 @@ import Footer from '../components/Footer.astro'
     margin-top: 40px;
   }
 
+  /* EC Platforms */
+  .ec-section { background: #f8f9ff; }
+  .ec-platforms {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .ec-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 36px 28px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #fff;
+    transition: all 0.3s ease;
+  }
+  .ec-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    border-color: #0066cc;
+  }
+  .ec-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+  .ec-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .ec-card p {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 16px;
+  }
+  .ec-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: #0066cc;
+  }
+
   /* News */
   .news-section { background: #fff; }
   .news-grid {
@@ -604,6 +704,7 @@ import Footer from '../components/Footer.astro'
 
   @media (max-width: 1024px) {
     .news-grid { grid-template-columns: repeat(2, 1fr); }
+    .ec-platforms { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 768px) {
@@ -611,8 +712,11 @@ import Footer from '../components/Footer.astro'
     .hero-visual { display: none; }
     .business-grid { grid-template-columns: 1fr; }
     .about-inner { grid-template-columns: 1fr; }
+    .about-text { order: 2; }
+    .about-image { order: 1; }
     .staff-grid { grid-template-columns: repeat(2, 1fr); }
     .news-grid { grid-template-columns: 1fr; }
+    .ec-platforms { grid-template-columns: 1fr; }
     .recruit-cta-inner { flex-direction: column; text-align: center; }
   }
 </style>
