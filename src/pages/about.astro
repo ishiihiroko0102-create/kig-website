@@ -140,6 +140,33 @@ import Footer from '../components/Footer.astro'
       </div>
     </section>
 
+    <!-- Staff Preview -->
+    <section class="section staff-preview">
+      <div class="container">
+        <p class="section-label fade-up">STAFF</p>
+        <h2 class="section-title fade-up">スタッフ紹介</h2>
+        <div class="staff-mini-grid">
+          {[
+            { name: '石井 浩子', role: 'WEBマーケティング' },
+            { name: '中本 学志', role: '広報戦略兼バイヤー' },
+            { name: '中嶋 創介', role: 'バイヤー' },
+            { name: '本岡 勇作', role: 'バイヤー兼商品管理' },
+          ].map((s, i) => (
+            <div class={`staff-mini-card fade-up ${i > 0 ? `fade-up-delay-${Math.min(i, 3)}` : ''}`}>
+              <div class="staff-avatar-mini">
+                <span>{s.name.charAt(0)}</span>
+              </div>
+              <p class="staff-mini-name">{s.name}</p>
+              <p class="staff-mini-role">{s.role}</p>
+            </div>
+          ))}
+        </div>
+        <div class="staff-link fade-up">
+          <a href="/staff" class="btn btn-outline-navy">スタッフ紹介を見る</a>
+        </div>
+      </div>
+    </section>
+
   </main>
   <Footer />
 </Layout>
@@ -323,12 +350,65 @@ import Footer from '../components/Footer.astro'
     font-weight: 500;
   }
 
+  /* Staff Preview */
+  .staff-preview { background: #fff; }
+  .staff-mini-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    margin-top: 48px;
+  }
+  .staff-mini-card {
+    text-align: center;
+    padding: 24px 20px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .staff-mini-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+  .staff-avatar-mini {
+    width: 64px;
+    height: 64px;
+    background: #e8edf8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0d1f6e;
+  }
+  .staff-mini-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 6px;
+  }
+  .staff-mini-role {
+    font-size: 12px;
+    color: #6b7280;
+  }
+  .staff-link {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 1024px) {
+    .staff-mini-grid { grid-template-columns: repeat(2, 1fr); }
+    .offices-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
   @media (max-width: 768px) {
     .concept-grid { grid-template-columns: 1fr; }
     .intro-block { grid-template-columns: 1fr; }
     .info-row { grid-template-columns: 1fr; }
     .info-row dt { border-right: none; border-bottom: 1px solid #e5e7eb; }
     .offices-grid { grid-template-columns: 1fr; }
+    .staff-mini-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 

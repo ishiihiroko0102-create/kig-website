@@ -15,9 +15,12 @@ import Footer from '../components/Footer.astro'
       </div>
     </section>
 
-    <section class="section">
+    <section class="section business-section">
       <div class="container">
+        <p class="section-label fade-up">OUR BUSINESS</p>
+        <h2 class="section-title fade-up">事業紹介</h2>
 
+        <div class="biz-grid">
         <div class="biz-block fade-up">
           <div class="biz-header">
             <span class="biz-num">01</span>
@@ -123,6 +126,7 @@ import Footer from '../components/Footer.astro'
             </div>
           </div>
         </div>
+        </div>
 
       </div>
     </section>
@@ -140,15 +144,40 @@ import Footer from '../components/Footer.astro'
   .page-title { color: #fff; margin-bottom: 12px; }
   .page-sub { color: rgba(255,255,255,0.65); font-size: 16px; }
 
+  .business-section { background: #fff; }
+  .biz-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    margin-top: 48px;
+  }
   .biz-block {
     border: 1px solid #e5e7eb;
     border-radius: 16px;
     padding: 48px;
-    margin-bottom: 32px;
-    transition: box-shadow 0.2s;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .biz-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,102,204,0.02), rgba(13,31,110,0.02));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
   }
   .biz-block:hover {
-    box-shadow: 0 8px 40px rgba(13,31,110,0.08);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(13,31,110,0.12);
+    border-color: #0066cc;
+  }
+  .biz-block:hover::before {
+    opacity: 1;
   }
   .biz-header {
     display: flex;
@@ -204,9 +233,14 @@ import Footer from '../components/Footer.astro'
     line-height: 1.7;
   }
 
+  @media (max-width: 1024px) {
+    .biz-grid { grid-template-columns: 1fr; }
+  }
+
   @media (max-width: 768px) {
     .biz-block { padding: 28px 20px; }
     .biz-features { grid-template-columns: 1fr; }
+    .biz-header { flex-direction: column; }
   }
 </style>
 

@@ -167,6 +167,46 @@ import Footer from '../components/Footer.astro'
       </div>
     </section>
 
+    <!-- News -->
+    <section class="section news-section">
+      <div class="container">
+        <p class="section-label fade-up">NEWS</p>
+        <h2 class="section-title fade-up">最新情報</h2>
+        <div class="news-grid">
+          <a href="/news" class="news-card fade-up">
+            <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop')"></div>
+            <div class="news-content">
+              <p class="news-tag news-tag-news">ニュース</p>
+              <h3>KIG、新しい営業所をオープン</h3>
+              <p>KIGが新しく営業所をオープンしました。より多くのお客様にサービスを提供できるようになります。</p>
+              <p class="news-date">2026年2月21日</p>
+            </div>
+          </a>
+          <a href="/news" class="news-card fade-up fade-up-delay-1">
+            <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop')"></div>
+            <div class="news-content">
+              <p class="news-tag news-tag-event">イベント</p>
+              <h3>創立記念イベント開催</h3>
+              <p>株式会社KIGの創立記念イベントを開催いたしました。多くのお客様にご参加いただきました。</p>
+              <p class="news-date">2026年2月20日</p>
+            </div>
+          </a>
+          <a href="/news" class="news-card fade-up fade-up-delay-2">
+            <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop')"></div>
+            <div class="news-content">
+              <p class="news-tag news-tag-recruit">採用</p>
+              <h3>新卒採用を開始しました</h3>
+              <p>2027年度新卒採用を開始いたしました。意欲的な人材のご応募をお待ちしております。</p>
+              <p class="news-date">2026年2月19日</p>
+            </div>
+          </a>
+        </div>
+        <div class="news-cta fade-up">
+          <a href="/news" class="btn btn-outline-navy">すべてのニュースを見る</a>
+        </div>
+      </div>
+    </section>
+
     <!-- Recruit CTA -->
     <section class="recruit-cta">
       <div class="container recruit-cta-inner fade-up">
@@ -465,6 +505,84 @@ import Footer from '../components/Footer.astro'
     margin-top: 40px;
   }
 
+  /* News */
+  .news-section { background: #fff; }
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+  }
+  .news-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  }
+  .news-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border-color: #0066cc;
+  }
+  .news-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+  }
+  .news-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .news-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    width: fit-content;
+  }
+  .news-tag-news {
+    background: #e6f0ff;
+    color: #0066cc;
+  }
+  .news-tag-event {
+    background: #e8f5e9;
+    color: #2e7d32;
+  }
+  .news-tag-recruit {
+    background: #fff3e0;
+    color: #e65100;
+  }
+  .news-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .news-card p {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.6;
+  }
+  .news-date {
+    font-size: 12px;
+    color: #9ca3af;
+    margin-top: auto;
+    padding-top: 12px;
+    margin: 0 !important;
+  }
+  .news-cta {
+    text-align: center;
+    margin-top: 40px;
+  }
+
   /* Recruit CTA */
   .recruit-cta {
     background: linear-gradient(135deg, #0d1f6e 0%, #1e4fd8 100%);
@@ -484,12 +602,17 @@ import Footer from '../components/Footer.astro'
   }
   .btn-white:hover { background: #f3f4f6; }
 
+  @media (max-width: 1024px) {
+    .news-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
   @media (max-width: 768px) {
     .hero-inner { grid-template-columns: 1fr; }
     .hero-visual { display: none; }
     .business-grid { grid-template-columns: 1fr; }
     .about-inner { grid-template-columns: 1fr; }
     .staff-grid { grid-template-columns: repeat(2, 1fr); }
+    .news-grid { grid-template-columns: 1fr; }
     .recruit-cta-inner { flex-direction: column; text-align: center; }
   }
 </style>
