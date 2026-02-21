@@ -1,0 +1,331 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Header from '../../components/Header.astro'
+import Footer from '../../components/Footer.astro'
+---
+
+<Layout title="箕面営業所 - 箕面市での自動車パーツ買取 | 株式会社KIG" description="箕面市外院の箕面営業所で自動車パーツ買取。関西全域対応。即日対応、高価買取。">
+  <Header />
+  <main>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="breadcrumb"><a href="/">HOME</a> / <a href="/locations">営業所</a> / 箕面営業所</p>
+        <h1 class="page-title">箕面営業所</h1>
+        <p class="page-sub">箕面市外院 | 関西全域対応</p>
+      </div>
+    </section>
+
+    <!-- Office Details -->
+    <section class="section office-detail-section">
+      <div class="container">
+        <div class="office-showcase fade-up">
+          <div class="office-info-block">
+            <h2>箕面営業所</h2>
+            <p class="office-location">〒562-0026 大阪府箕面市外院2丁目4-11</p>
+
+            <div class="contact-info">
+              <div class="contact-item">
+                <span class="contact-label">電話</span>
+                <span class="contact-value"><a href="tel:07272795077">072-727-5077</a></span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">営業時間</span>
+                <span class="contact-value">平日 9:00～18:00</span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">対応エリア</span>
+                <span class="contact-value">関西全域<br />（大阪・兵庫・京都・奈良・和歌山）</span>
+              </div>
+            </div>
+
+            <p class="office-description">
+              箕面市外院に位置する営業所です。地域に密着した営業活動を行っており、お客様のニーズに合わせた柔軟な対応が可能です。関西全域への出張買取にも対応いたします。
+            </p>
+
+            <div class="action-buttons">
+              <a href="/contact" class="btn btn-navy">お問い合わせ</a>
+              <a href="/locations" class="btn btn-outline-navy">他の営業所を見る</a>
+            </div>
+          </div>
+
+          <div class="office-map-wrapper">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3277.8947682839134!2d135.56112!3d34.812345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000f0f0f0f0f0f1%3A0x0!2z5a6u5bel6auY6YKu5pil!5e0!3m2!1sja!2sjp!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+        <!-- Business Content -->
+        <div class="business-content fade-up">
+          <h3>箕面営業所での対応サービス</h3>
+          <div class="service-grid">
+            <div class="service-item">
+              <h4>出張買取</h4>
+              <p>関西全域への出張買取を承っています。大量買取にも対応いたします。</p>
+            </div>
+            <div class="service-item">
+              <h4>持ち込み買取</h4>
+              <p>直接ご来社いただき、その場で査定・買取いたします。即座に対応いたします。</p>
+            </div>
+            <div class="service-item">
+              <h4>パーツ販売</h4>
+              <p>良質な中古自動車パーツを豊富に取り揃えています。詳細はお気軽にお問い合わせください。</p>
+            </div>
+            <div class="service-item">
+              <h4>査定・相談</h4>
+              <p>パーツの査定や買取に関するご相談はお気軽にお電話ください。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nearby Offices -->
+    <section class="section nearby-offices">
+      <div class="container">
+        <h3 class="section-title fade-up">大阪の他の営業所</h3>
+        <div class="nearby-grid fade-up">
+          <a href="/locations/osaka-honsha" class="nearby-card">
+            <h4>本社</h4>
+            <p>〒550-0002 大阪府大阪市西区江戸堀2-1-1 9階</p>
+            <span class="nearby-link">詳しく見る →</span>
+          </a>
+          <a href="/locations/osaka-minoh-dai2" class="nearby-card">
+            <h4>箕面第2営業所</h4>
+            <p>〒562-0033 大阪府箕面市今宮3丁目2-3</p>
+            <span class="nearby-link">詳しく見る →</span>
+          </a>
+          <a href="/locations/osaka-kaitori-center" class="nearby-card">
+            <h4>買取センター</h4>
+            <p>〒562-0033 大阪府箕面市今宮3丁目9-24</p>
+            <span class="nearby-link">詳しく見る →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section contact-cta">
+      <div class="container contact-cta-inner fade-up">
+        <div>
+          <h2>箕面営業所へのお問い合わせ</h2>
+          <p>自動車パーツの買取・販売に関するご質問やご相談はお気軽にお問い合わせください。</p>
+        </div>
+        <a href="/contact" class="btn btn-white">お問い合わせフォーム</a>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #0d1f6e 0%, #1e4fd8 100%);
+    padding: 60px 0;
+  }
+  .breadcrumb {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 16px;
+  }
+  .breadcrumb a { color: rgba(255,255,255,0.5); }
+  .page-title { color: #fff; margin-bottom: 12px; }
+  .page-sub { color: rgba(255,255,255,0.65); font-size: 16px; }
+
+  .office-detail-section { background: #fff; }
+  .office-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 48px;
+    align-items: start;
+  }
+  .office-info-block h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 12px;
+  }
+  .office-location {
+    font-size: 15px;
+    color: #6b7280;
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+  .contact-info {
+    background: #f8f9ff;
+    padding: 28px;
+    border-radius: 10px;
+    margin-bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .contact-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 16px;
+  }
+  .contact-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0d1f6e;
+    text-transform: uppercase;
+  }
+  .contact-value {
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.7;
+  }
+  .contact-value a {
+    color: #0066cc;
+    font-weight: 600;
+  }
+  .office-description {
+    font-size: 15px;
+    color: #6b7280;
+    line-height: 1.8;
+    margin-bottom: 28px;
+  }
+  .action-buttons {
+    display: flex;
+    gap: 16px;
+  }
+  .office-map-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  .business-content {
+    margin-top: 64px;
+  }
+  .business-content h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 32px;
+  }
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  .service-item {
+    padding: 28px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  .service-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border-color: #0066cc;
+  }
+  .service-item h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 12px;
+  }
+  .service-item p {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.7;
+  }
+
+  .nearby-offices { background: #f8f9ff; }
+  .nearby-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 32px;
+  }
+  .nearby-card {
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  .nearby-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border-color: #0066cc;
+  }
+  .nearby-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+  }
+  .nearby-card p {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+  .nearby-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: #0066cc;
+  }
+
+  .contact-cta {
+    background: linear-gradient(135deg, #0d1f6e 0%, #1e4fd8 100%);
+    padding: 80px 0;
+  }
+  .contact-cta-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+  }
+  .contact-cta-inner h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .contact-cta-inner p {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+  }
+  .btn-white {
+    background: #fff;
+    color: #0d1f6e;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .btn-white:hover { background: #f3f4f6; }
+
+  @media (max-width: 1024px) {
+    .office-showcase { grid-template-columns: 1fr; }
+    .nearby-grid { grid-template-columns: repeat(2, 1fr); }
+    .service-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .office-showcase { grid-template-columns: 1fr; }
+    .contact-info { grid-template-columns: 1fr; }
+    .contact-item { grid-template-columns: 1fr; }
+    .nearby-grid { grid-template-columns: 1fr; }
+    .service-grid { grid-template-columns: 1fr; }
+    .action-buttons { flex-direction: column; }
+    .contact-cta-inner { flex-direction: column; text-align: center; }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible')
+        observer.unobserve(entry.target)
+      }
+    })
+  }, { threshold: 0.1 })
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el))
+</script>
