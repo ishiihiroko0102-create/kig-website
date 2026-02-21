@@ -1,0 +1,306 @@
+---
+import { getLangFromUrl, getLocalizedPath } from '../i18n/utils'
+import { t } from '../i18n/translations'
+
+const lang = getLangFromUrl(Astro.url)
+const lp = (path: string) => getLocalizedPath(path, lang)
+---
+
+<section class="page-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href={lp('/')}>{t(lang, 'common.home')}</a> / {t(lang, 'bizPage.breadcrumb')}</p>
+    <h1 class="page-title">{t(lang, 'bizPage.heroTitle')}</h1>
+    <p class="page-sub">{t(lang, 'bizPage.heroSub')}</p>
+  </div>
+</section>
+
+<section class="section business-section">
+  <div class="container">
+    <p class="section-label fade-up">OUR BUSINESS</p>
+    <h2 class="section-title fade-up">{t(lang, 'bizPage.section.title')}</h2>
+    <p class="section-desc fade-up">{t(lang, 'bizPage.section.desc')}</p>
+
+    <div class="business-hero-images fade-up">
+      <img src="https://images.unsplash.com/photo-1590080876-35a6adf42b4f?w=600&h=300&fit=crop" alt="倉庫業務" class="biz-img-1" />
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=300&fit=crop" alt="品質管理" class="biz-img-2" />
+      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=300&fit=crop" alt="販売業務" class="biz-img-3" />
+    </div>
+
+    <div class="biz-grid">
+    <div class="biz-block fade-up">
+      <div class="biz-header">
+        <span class="biz-num">01</span>
+        <div>
+          <h2>{t(lang, 'bizPage.01.title')}</h2>
+          <p class="biz-category">{t(lang, 'bizPage.01.category')}</p>
+        </div>
+      </div>
+      <div class="biz-content">
+        <p>{t(lang, 'bizPage.01.desc')}</p>
+        <p class="biz-highlight" set:html={t(lang, 'bizPage.01.highlight')} />
+        <div class="biz-features">
+          <div class="biz-feat">
+            <p class="feat-title">{t(lang, 'bizPage.01.feat1.title')}</p>
+            <p>{t(lang, 'bizPage.01.feat1.desc')}</p>
+          </div>
+          <div class="biz-feat">
+            <p class="feat-title">{t(lang, 'bizPage.01.feat2.title')}</p>
+            <p>{t(lang, 'bizPage.01.feat2.desc')}</p>
+          </div>
+          <div class="biz-feat">
+            <p class="feat-title">{t(lang, 'bizPage.01.feat3.title')}</p>
+            <p>{t(lang, 'bizPage.01.feat3.desc')}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="biz-block fade-up">
+      <div class="biz-header">
+        <span class="biz-num">02</span>
+        <div>
+          <h2>{t(lang, 'bizPage.02.title')}</h2>
+          <p class="biz-category">{t(lang, 'bizPage.02.category')}</p>
+        </div>
+      </div>
+      <div class="biz-content">
+        <p>{t(lang, 'bizPage.02.desc')}</p>
+        <div class="biz-features">
+          <div class="biz-feat">
+            <p class="feat-title">{t(lang, 'bizPage.02.feat1.title')}</p>
+            <p>{t(lang, 'bizPage.02.feat1.desc')}</p>
+          </div>
+          <div class="biz-feat">
+            <p class="feat-title">{t(lang, 'bizPage.02.feat2.title')}</p>
+            <p>{t(lang, 'bizPage.02.feat2.desc')}</p>
+          </div>
+          <div class="biz-feat">
+            <p class="feat-title">{t(lang, 'bizPage.02.feat3.title')}</p>
+            <p>{t(lang, 'bizPage.02.feat3.desc')}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="biz-block fade-up">
+      <div class="biz-header">
+        <span class="biz-num">03</span>
+        <div>
+          <h2>{t(lang, 'bizPage.03.title')}</h2>
+          <p class="biz-category">{t(lang, 'bizPage.03.category')}</p>
+        </div>
+      </div>
+      <div class="biz-content">
+        <p>{t(lang, 'bizPage.03.desc')}</p>
+        <div class="biz-features">
+          <div class="biz-feat">
+            <p class="feat-title">{t(lang, 'bizPage.03.feat1.title')}</p>
+            <p>{t(lang, 'bizPage.03.feat1.desc')}</p>
+          </div>
+          <div class="biz-feat">
+            <p class="feat-title">{t(lang, 'bizPage.03.feat2.title')}</p>
+            <p>{t(lang, 'bizPage.03.feat2.desc')}</p>
+          </div>
+          <div class="biz-feat">
+            <p class="feat-title">{t(lang, 'bizPage.03.feat3.title')}</p>
+            <p>{t(lang, 'bizPage.03.feat3.desc')}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="biz-block fade-up">
+      <div class="biz-header">
+        <span class="biz-num">04</span>
+        <div>
+          <h2>{t(lang, 'bizPage.04.title')}</h2>
+          <p class="biz-category">{t(lang, 'bizPage.04.category')}</p>
+        </div>
+      </div>
+      <div class="biz-content">
+        <p>{t(lang, 'bizPage.04.desc')}</p>
+        <div class="biz-features">
+          <div class="biz-feat">
+            <p class="feat-title">{t(lang, 'bizPage.04.feat1.title')}</p>
+            <p>{t(lang, 'bizPage.04.feat1.desc')}</p>
+          </div>
+          <div class="biz-feat">
+            <p class="feat-title">{t(lang, 'bizPage.04.feat2.title')}</p>
+            <p>{t(lang, 'bizPage.04.feat2.desc')}</p>
+          </div>
+          <div class="biz-feat">
+            <p class="feat-title">{t(lang, 'bizPage.04.feat3.title')}</p>
+            <p>{t(lang, 'bizPage.04.feat3.desc')}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    padding: 60px 0;
+  }
+  .breadcrumb { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 16px; }
+  .breadcrumb a { color: rgba(255,255,255,0.5); }
+  .page-title { color: #fff; margin-bottom: 12px; }
+  .page-sub { color: rgba(255,255,255,0.65); font-size: 16px; }
+
+  .business-section { background: #fff; }
+  .section-desc {
+    font-size: 15px;
+    color: #666666;
+    line-height: 1.8;
+    margin-top: 16px;
+    margin-bottom: 48px;
+    max-width: 700px;
+  }
+  .business-hero-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 48px 0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .business-hero-images img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+  }
+  .business-hero-images img:hover {
+    transform: scale(1.05);
+  }
+  .biz-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    margin-top: 48px;
+  }
+  .biz-block {
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    padding: 48px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .biz-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(10,10,10,0.02), rgba(0,0,0,0.02));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .biz-block:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+    border-color: #0a0a0a;
+  }
+  .biz-block:hover::before {
+    opacity: 1;
+  }
+  .biz-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  .biz-num {
+    font-size: 40px;
+    font-weight: 800;
+    color: #f5f5f5;
+    line-height: 1;
+    flex-shrink: 0;
+    letter-spacing: -0.02em;
+  }
+  .biz-header h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #0a0a0a;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+  .biz-category {
+    font-size: 13px;
+    color: #666666;
+    font-weight: 500;
+    margin-bottom: 0;
+  }
+  .biz-url a {
+    font-size: 13px;
+    color: #1a1a1a;
+    font-weight: 500;
+  }
+  .biz-highlight {
+    font-size: 14px;
+    color: #333333;
+    line-height: 1.8;
+    margin-top: 12px;
+    padding: 12px;
+    background: #f5f5f5;
+    border-left: 3px solid #0a0a0a;
+    border-radius: 4px;
+  }
+  .biz-content > p {
+    font-size: 15px;
+    color: #333333;
+    line-height: 1.85;
+    margin-bottom: 32px;
+  }
+  .biz-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .biz-feat {
+    background: #f7f7f7;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .feat-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0a0a0a;
+    margin-bottom: 8px;
+  }
+  .biz-feat p:last-child {
+    font-size: 13px;
+    color: #666666;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 1024px) {
+    .biz-grid { grid-template-columns: 1fr; }
+    .business-hero-images { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .biz-block { padding: 28px 20px; }
+    .biz-features { grid-template-columns: 1fr; }
+    .biz-header { flex-direction: column; }
+    .business-hero-images { grid-template-columns: 1fr; }
+    .business-hero-images img { height: 200px; }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    })
+  }, { threshold: 0.1 })
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el))
+</script>

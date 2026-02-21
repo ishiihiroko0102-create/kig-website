@@ -1,0 +1,206 @@
+---
+import { getLangFromUrl, getLocalizedPath } from '../i18n/utils'
+import { t } from '../i18n/translations'
+
+const lang = getLangFromUrl(Astro.url)
+const lp = (path: string) => getLocalizedPath(path, lang)
+---
+
+<section class="page-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href={lp('/')}>{t(lang, 'common.home')}</a> / {t(lang, 'contactPage.breadcrumb')}</p>
+    <h1 class="page-title">{t(lang, 'contactPage.heroTitle')}</h1>
+    <p class="page-sub">{t(lang, 'contactPage.heroSub')}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container contact-layout">
+
+    <div class="contact-info fade-up">
+      <h2>{t(lang, 'contactPage.heading')}</h2>
+      <p>{t(lang, 'contactPage.desc')}</p>
+
+      <div class="info-items">
+        <div class="info-item">
+          <p class="info-label">{t(lang, 'contactPage.tel')}</p>
+          <p class="info-val">{t(lang, 'contactPage.telVal')}</p>
+          <p class="info-note">{t(lang, 'contactPage.telNote')}</p>
+        </div>
+        <div class="info-item">
+          <p class="info-label">{t(lang, 'contactPage.fax')}</p>
+          <p class="info-val">{t(lang, 'contactPage.faxVal')}</p>
+        </div>
+        <div class="info-item">
+          <p class="info-label">{t(lang, 'contactPage.address')}</p>
+          <p class="info-val">{t(lang, 'contactPage.addressVal')}</p>
+          <p class="info-note">{t(lang, 'contactPage.addressNote')}</p>
+        </div>
+        <div class="info-item">
+          <p class="info-label">{t(lang, 'contactPage.holiday')}</p>
+          <p class="info-val">{t(lang, 'contactPage.holidayVal')}</p>
+        </div>
+      </div>
+
+      <div class="recruit-link">
+        <p>{t(lang, 'contactPage.recruitLink')}</p>
+        <a href={lp('/recruit')} class="btn btn-secondary" style="margin-top:12px">{t(lang, 'contactPage.recruitCta')}</a>
+      </div>
+    </div>
+
+    <div class="contact-form fade-up fade-up-delay-1">
+      <form class="form" name="contact" method="POST" data-netlify="true">
+        <div class="form-group">
+          <label for="name">{t(lang, 'contactPage.form.name')} <span class="required">{t(lang, 'contactPage.form.required')}</span></label>
+          <input type="text" id="name" name="name" placeholder={t(lang, 'contactPage.form.namePlaceholder')} required />
+        </div>
+        <div class="form-group">
+          <label for="tel">{t(lang, 'contactPage.form.tel')} <span class="required">{t(lang, 'contactPage.form.required')}</span></label>
+          <input type="tel" id="tel" name="tel" placeholder={t(lang, 'contactPage.form.telPlaceholder')} required />
+        </div>
+        <div class="form-group">
+          <label for="email">{t(lang, 'contactPage.form.email')} <span class="required">{t(lang, 'contactPage.form.required')}</span></label>
+          <input type="email" id="email" name="email" placeholder={t(lang, 'contactPage.form.emailPlaceholder')} required />
+        </div>
+        <div class="form-group">
+          <label for="subject">{t(lang, 'contactPage.form.subject')} <span class="required">{t(lang, 'contactPage.form.required')}</span></label>
+          <input type="text" id="subject" name="subject" placeholder={t(lang, 'contactPage.form.subjectPlaceholder')} required />
+        </div>
+        <div class="form-group">
+          <label for="message">{t(lang, 'contactPage.form.message')} <span class="optional">{t(lang, 'contactPage.form.optional')}</span></label>
+          <textarea id="message" name="message" rows="6" placeholder={t(lang, 'contactPage.form.messagePlaceholder')}></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary submit-btn">{t(lang, 'contactPage.form.submit')}</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    padding: 60px 0;
+  }
+  .breadcrumb { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 16px; }
+  .breadcrumb a { color: rgba(255,255,255,0.5); }
+  .page-title { color: #fff; margin-bottom: 12px; }
+  .page-sub { color: rgba(255,255,255,0.65); font-size: 16px; }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-info h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0a0a0a;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .contact-info > p {
+    font-size: 15px;
+    color: #666666;
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+  .info-items {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .info-item {
+    border-left: 3px solid #0a0a0a;
+    padding-left: 16px;
+  }
+  .info-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #cccccc;
+    margin-bottom: 4px;
+  }
+  .info-val {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0a0a0a;
+    margin-bottom: 2px;
+  }
+  .info-note { font-size: 13px; color: #666666; }
+
+  .recruit-link {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .recruit-link p { font-size: 14px; color: #333333; font-weight: 500; }
+
+  .contact-form {
+    background: #f7f7f7;
+    border-radius: 16px;
+    padding: 48px;
+  }
+  .form { display: flex; flex-direction: column; gap: 24px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+  label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .required {
+    background: #0a0a0a;
+    color: #fff;
+    font-size: 11px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+  .optional {
+    background: #e0e0e0;
+    color: #666666;
+    font-size: 11px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+  input, textarea {
+    font-family: inherit;
+    font-size: 15px;
+    color: #0a0a0a;
+    background: #fff;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    width: 100%;
+  }
+  input:focus, textarea:focus {
+    border-color: #0a0a0a;
+    box-shadow: 0 0 0 3px rgba(0,0,0,0.08);
+  }
+  textarea { resize: vertical; line-height: 1.6; }
+  .submit-btn { width: 100%; justify-content: center; font-size: 16px; padding: 16px; }
+
+  @media (max-width: 768px) {
+    .contact-layout { grid-template-columns: 1fr; }
+    .contact-form { padding: 28px 20px; }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    })
+  }, { threshold: 0.1 })
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el))
+</script>

@@ -1,0 +1,644 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+---
+
+<Layout title="FAQ よくある質問" description="KIG の買取方法、郵送買取、採用に関するよくある質問">
+  <Header />
+  <main class="faq-container">
+
+    <!-- ページヘッダー -->
+    <section class="faq-header">
+      <div class="container">
+        <h1>よくある質問<br><span class="subtitle-text">FAQ</span></h1>
+        <p class="subtitle">買取方法・郵送買取・採用に関するご質問にお答えします</p>
+      </div>
+    </section>
+
+    <!-- FAQコンテンツ -->
+    <section class="faq-content">
+      <div class="container">
+
+        <!-- カテゴリタブ -->
+        <div class="faq-tabs">
+          <button class="faq-tab active" data-category="buying">
+            <span class="tab-icon">🛒</span>
+            <span class="tab-text">買取方法</span>
+          </button>
+          <button class="faq-tab" data-category="shipping">
+            <span class="tab-icon">📦</span>
+            <span class="tab-text">郵送買取</span>
+          </button>
+          <button class="faq-tab" data-category="recruit">
+            <span class="tab-icon">💼</span>
+            <span class="tab-text">採用</span>
+          </button>
+        </div>
+
+        <!-- 買取方法 -->
+        <div class="faq-category active" id="category-buying">
+          <div class="faq-items">
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span class="q-text">買取の流れを教えてください</span>
+                <span class="q-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>買取の流れは以下の通りです：</p>
+                <ol>
+                  <li><strong>お問い合わせ</strong> - 電話またはWebサイトからお問い合わせください</li>
+                  <li><strong>査定</strong> - 営業マンが商品を確認し、査定額をお提示します</li>
+                  <li><strong>承認</strong> - 査定額にご納得いただければ、買取成立です</li>
+                  <li><strong>お支払い</strong> - その場で現金をお渡しします</li>
+                </ol>
+                <p>所要時間は通常30分～1時間です。</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span class="q-text">出張買取の対応エリアは？</span>
+                <span class="q-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>以下のエリアに対応しています：</p>
+                <ul>
+                  <li><strong>関西地域</strong> - 大阪、兵庫、京都、奈良、和歌山</li>
+                  <li><strong>九州地域</strong> - 福岡、佐賀、長崎、熊本、大分、宮崎、鹿児島</li>
+                </ul>
+                <p>その他のエリアについてはお気軽にお問い合わせください。</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span class="q-text">どのような品物が買取対象ですか？</span>
+                <span class="q-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>以下の自動車パーツが買取対象です：</p>
+                <ul>
+                  <li>ヘッドライト、テールライト</li>
+                  <li>バンパー、ドア、ボンネット</li>
+                  <li>エンジン部品</li>
+                  <li>BMW、ベンツなどの輸入車パーツ</li>
+                  <li>その他カスタムパーツ</li>
+                </ul>
+                <p>詳細な品物については、お気軽にお問い合わせください。</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span class="q-text">査定は無料ですか？</span>
+                <span class="q-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>はい、査定は完全無料です。お気軽にお問い合わせください。</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 郵送買取 -->
+        <div class="faq-category" id="category-shipping">
+          <div class="faq-items">
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span class="q-text">郵送買取とは何ですか？</span>
+                <span class="q-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>郵送買取は、自宅から自動車パーツを売却できるサービスです。</p>
+                <p><strong>特徴：</strong></p>
+                <ul>
+                  <li>送料は当社が負担（完全無料）</li>
+                  <li>見積もりが気軽</li>
+                  <li>全国どこからでも対応</li>
+                  <li>ご自宅で商品をお預けいただく必要がなし</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span class="q-text">郵送買取の流れを教えてください</span>
+                <span class="q-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>郵送買取の流れは以下の通りです：</p>
+                <ol>
+                  <li><strong>お問い合わせ</strong> - 商品の写真と詳細をお送りください</li>
+                  <li><strong>仮査定</strong> - 写真から仮査定額をお提示します</li>
+                  <li><strong>梱包・発送</strong> - 段ボールに詰めて、元払いで発送ください</li>
+                  <li><strong>本査定</strong> - 商品到着後、正確な査定を行います</li>
+                  <li><strong>ご承認・お支払い</strong> - 査定額にご納得いただければ、お振込みします</li>
+                </ol>
+                <p>所要時間は通常1～2週間です。</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span class="q-text">送料は本当に無料ですか？</span>
+                <span class="q-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>はい、送料は当社が負担いたします。完全無料です。</p>
+                <p>ただし、返送が必要な場合は別途相談させていただきます。</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span class="q-text">複数の商品をまとめて送ってもいい？</span>
+                <span class="q-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>もちろんです！複数の商品をまとめて送っていただけます。</p>
+                <p>その場合は、詳細なリストをお送りください。</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span class="q-text">返品はできますか？</span>
+                <span class="q-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>査定額にご不満の場合は、返品をお受けします。</p>
+                <p>ただし、返送料はお客様のご負担となります。あらかじめご了承ください。</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 採用 -->
+        <div class="faq-category" id="category-recruit">
+          <div class="faq-items">
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span class="q-text">どのような職種がありますか？</span>
+                <span class="q-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>以下の3つの職種を募集しています：</p>
+                <ul>
+                  <li><strong>営業スタッフ</strong> - 出張買取や顧客対応</li>
+                  <li><strong>倉庫内物流スタッフ</strong> - 商品管理と梱包</li>
+                  <li><strong>データ入力スタッフ</strong> - 商品情報の入力・管理</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span class="q-text">給与はどのくらいですか？</span>
+                <span class="q-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>職種によって異なります：</p>
+                <ul>
+                  <li><strong>営業スタッフ</strong> - 250,000～600,000円</li>
+                  <li><strong>倉庫内物流スタッフ</strong> - 230,000～450,000円</li>
+                  <li><strong>データ入力スタッフ</strong> - 220,000～350,000円</li>
+                </ul>
+                <p>試用期間（3ヶ月）中は10～20%減となります。</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span class="q-text">未経験でも応募できますか？</span>
+                <span class="q-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>はい、未経験でも大歓迎です！</p>
+                <p>丁寧な研修を行いますので、安心してご応募ください。</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span class="q-text">福利厚生について教えてください</span>
+                <span class="q-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>以下の福利厚生をご用意しています：</p>
+                <ul>
+                  <li>完全週休2日（土日）</li>
+                  <li>社会保険完備（健康保険・厚生年金・雇用保険・労災保険）</li>
+                  <li>フォークリフト免許取得支援</li>
+                  <li>セカンドチャンス制度</li>
+                  <li>部門内での配置転換可能性</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span class="q-text">勤務地はどこですか？</span>
+                <span class="q-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>勤務地は以下の通りです：</p>
+                <ul>
+                  <li><strong>大阪本社</strong> - 大阪府大阪市西区江戸堀</li>
+                  <li><strong>九州支店</strong> - 福岡県北九州市小倉南区</li>
+                </ul>
+                <p>希望や適性に応じて配置いたします。</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="faq-cta">
+          <h2>ご不明な点はお気軽にお問い合わせください</h2>
+          <p>上記以外のご質問も、いつでもお答えいたします</p>
+          <div class="cta-buttons">
+            <a href="/contact" class="btn btn-primary">お問い合わせ</a>
+            <a href="/recruit" class="btn btn-secondary">採用情報を見る</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .faq-container {
+    background-color: #ffffff;
+  }
+
+  .faq-header {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+  }
+
+  .faq-header h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .subtitle-text {
+    display: block;
+    font-size: 32px;
+    font-weight: 300;
+    margin-top: 10px;
+    opacity: 0.9;
+  }
+
+  .faq-header .subtitle {
+    font-size: 16px;
+    margin-top: 15px;
+    opacity: 0.9;
+  }
+
+  .faq-content {
+    padding: 60px 20px;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* タブシステム */
+  .faq-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 50px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .faq-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background-color: #f7f7f7;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #4a5568;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .faq-tab:hover {
+    background-color: #f5f5f5;
+    border-color: #0a0a0a;
+    color: #0a0a0a;
+    transform: translateY(-2px);
+  }
+
+  .faq-tab.active {
+    background-color: #0a0a0a;
+    border-color: #0a0a0a;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+  }
+
+  .tab-icon {
+    font-size: 18px;
+  }
+
+  /* カテゴリ表示/非表示 */
+  .faq-category {
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .faq-category.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* FAQアイテム */
+  .faq-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .faq-item {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+  }
+
+  .faq-item:hover {
+    border-color: #0a0a0a;
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
+  }
+
+  .faq-question {
+    width: 100%;
+    padding: 20px;
+    background-color: #f9fafb;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.2s ease;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a202c;
+  }
+
+  .faq-question:hover {
+    background-color: #f7f7f7;
+  }
+
+  .faq-item.open .faq-question {
+    background-color: #f5f5f5;
+    color: #0a0a0a;
+  }
+
+  .q-text {
+    flex: 1;
+    text-align: left;
+  }
+
+  .q-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: #0a0a0a;
+    color: white;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+  }
+
+  .faq-item.open .q-icon {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    display: none;
+    padding: 20px;
+    background-color: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    color: #4a5568;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .faq-item.open .faq-answer {
+    display: block;
+    animation: slideDown 0.2s ease;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .faq-answer p {
+    margin: 0 0 15px 0;
+  }
+
+  .faq-answer p:last-child {
+    margin-bottom: 0;
+  }
+
+  .faq-answer ul,
+  .faq-answer ol {
+    margin: 10px 0 15px 0;
+    padding-left: 25px;
+  }
+
+  .faq-answer li {
+    margin: 8px 0;
+  }
+
+  .faq-answer strong {
+    color: #1a202c;
+  }
+
+  /* CTA */
+  .faq-cta {
+    text-align: center;
+    margin-top: 80px;
+    padding: 50px;
+    background: linear-gradient(135deg, #f5f5f5 0%, #f7f7f7 100%);
+    border-radius: 12px;
+    border: 1px solid #0a0a0a;
+  }
+
+  .faq-cta h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #1a202c;
+    margin: 0 0 10px 0;
+  }
+
+  .faq-cta p {
+    font-size: 16px;
+    color: #4a5568;
+    margin: 0 0 30px 0;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 12px 32px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 15px;
+  }
+
+  .btn-primary {
+    background-color: #0a0a0a;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background-color: #333333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+  }
+
+  .btn-secondary {
+    background-color: white;
+    color: #0a0a0a;
+    border: 2px solid #0a0a0a;
+  }
+
+  .btn-secondary:hover {
+    background-color: #f5f5f5;
+    transform: translateY(-2px);
+  }
+
+  /* レスポンシブ */
+  @media (max-width: 768px) {
+    .faq-header h1 {
+      font-size: 32px;
+    }
+
+    .subtitle-text {
+      font-size: 24px;
+    }
+
+    .faq-header .subtitle {
+      font-size: 14px;
+    }
+
+    .faq-tabs {
+      gap: 8px;
+    }
+
+    .faq-tab {
+      padding: 10px 15px;
+      font-size: 13px;
+    }
+
+    .tab-icon {
+      font-size: 16px;
+    }
+
+    .faq-question {
+      padding: 15px;
+      font-size: 14px;
+    }
+
+    .q-icon {
+      width: 24px;
+      height: 24px;
+      font-size: 16px;
+    }
+
+    .faq-answer {
+      padding: 15px;
+      font-size: 13px;
+    }
+
+    .faq-cta {
+      padding: 30px 20px;
+    }
+
+    .faq-cta h2 {
+      font-size: 22px;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .btn {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  // タブ切り替え
+  document.querySelectorAll('.faq-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      // タブのアクティブ状態を切り替え
+      document.querySelectorAll('.faq-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // カテゴリの表示/非表示を切り替え
+      document.querySelectorAll('.faq-category').forEach(cat => cat.classList.remove('active'));
+      const categoryId = `category-${tab.dataset.category}`;
+      document.getElementById(categoryId)?.classList.add('active');
+    });
+  });
+
+  // アコーディオン機能
+  document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+      const item = question.parentElement;
+      item.classList.toggle('open');
+    });
+  });
+</script>

@@ -1,0 +1,121 @@
+---
+import { getLangFromUrl, getLocalizedPath } from '../i18n/utils'
+import { t } from '../i18n/translations'
+
+const lang = getLangFromUrl(Astro.url)
+const lp = (path: string) => getLocalizedPath(path, lang)
+
+const staffKeys = ['ishii', 'nakamoto', 'nakajima', 'motoka', 'higuchi', 'takkan', 'kantoku', 'megagori'] as const
+
+const staff = staffKeys.map(key => ({
+  name: t(lang, `staff.${key}.name` as any),
+  role: t(lang, `staff.${key}.role` as any),
+  initial: t(lang, `staff.${key}.name` as any).charAt(0),
+}))
+---
+
+<section class="page-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href={lp('/')}>{t(lang, 'common.home')}</a> / {t(lang, 'staffPage.breadcrumb')}</p>
+    <h1 class="page-title">{t(lang, 'staffPage.heroTitle')}</h1>
+    <p class="page-sub">{t(lang, 'staffPage.heroSub')}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="staff-grid">
+      {staff.map((s, i) => (
+        <div class={`staff-card fade-up ${i > 0 ? `fade-up-delay-${Math.min(i % 4, 3)}` : ''}`}>
+          <div class="staff-avatar">{s.initial}</div>
+          <p class="staff-name">{s.name}</p>
+          <p class="staff-role">{s.role}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="recruit-banner fade-up">
+  <div class="container">
+    <p>{t(lang, 'staffPage.recruitBanner')}</p>
+    <a href={lp('/recruit')} class="btn btn-white">{t(lang, 'staffPage.recruitCta')}</a>
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    padding: 60px 0;
+  }
+  .breadcrumb { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 16px; }
+  .breadcrumb a { color: rgba(255,255,255,0.5); }
+  .page-title { color: #fff; margin-bottom: 12px; }
+  .page-sub { color: rgba(255,255,255,0.65); font-size: 16px; }
+
+  .staff-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .staff-card {
+    text-align: center;
+    padding: 40px 24px 32px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .staff-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    transform: translateY(-4px);
+  }
+  .staff-avatar {
+    width: 80px;
+    height: 80px;
+    background: #f5f5f5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #0a0a0a;
+  }
+  .staff-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0a0a0a;
+    margin-bottom: 6px;
+  }
+  .staff-role {
+    font-size: 13px;
+    color: #666666;
+  }
+
+  .recruit-banner {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    padding: 64px 0;
+    text-align: center;
+  }
+  .recruit-banner p {
+    color: rgba(255,255,255,0.8);
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+  .btn-white { background: #fff; color: #0a0a0a; font-weight: 600; }
+  .btn-white:hover { background: #f5f5f5; }
+
+  @media (max-width: 768px) {
+    .staff-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    })
+  }, { threshold: 0.1 })
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el))
+</script>

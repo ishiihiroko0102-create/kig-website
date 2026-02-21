@@ -1,0 +1,1167 @@
+---
+import { getLangFromUrl, getLocalizedPath } from '../i18n/utils'
+import { t } from '../i18n/translations'
+
+const lang = getLangFromUrl(Astro.url)
+const lp = (path: string) => getLocalizedPath(path, lang)
+
+const staffList = [
+  { key: 'ishii' as const },
+  { key: 'nakamoto' as const },
+  { key: 'nakajima' as const },
+  { key: 'motoka' as const },
+  { key: 'higuchi' as const },
+  { key: 'takkan' as const },
+]
+---
+
+<!-- Hero -->
+<section class="hero-richka">
+  <div class="container hero-content">
+    <div class="hero-text-wrapper">
+      <p class="hero-brand">{t(lang, 'hero.brand')}</p>
+      <h1 class="hero-title">{t(lang, 'hero.title')}</h1>
+      <p class="hero-tagline">{t(lang, 'hero.tagline')}</p>
+      <p class="hero-desc">
+        {t(lang, 'hero.desc.line1')}<br />
+        {t(lang, 'hero.desc.line2')}
+      </p>
+      <div class="hero-cta">
+        <a href={lp('/contact')} class="btn btn-accent">{t(lang, 'hero.cta.contact')}</a>
+        <a href={lp('/about')} class="btn btn-secondary">{t(lang, 'hero.cta.about')}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission -->
+<section class="mission-richka">
+  <div class="container">
+    <div class="mission-layout">
+      <div class="mission-text">
+        <p class="section-label">{t(lang, 'mission.label')}</p>
+        <h2 class="section-title">
+          {t(lang, 'mission.title.line1')}<br />{t(lang, 'mission.title.line2')}
+        </h2>
+        <p class="mission-description">{t(lang, 'mission.desc1')}</p>
+        <p class="mission-description">{t(lang, 'mission.desc2')}</p>
+        <div class="mission-values">
+          <div class="value-item">
+            <p class="value-title">{t(lang, 'mission.king.title')}</p>
+            <p class="value-desc" set:html={t(lang, 'mission.king.desc').replace('\n', '<br />')} />
+          </div>
+          <div class="value-item">
+            <p class="value-title">{t(lang, 'mission.keep.title')}</p>
+            <p class="value-desc" set:html={t(lang, 'mission.keep.desc').replace('\n', '<br />')} />
+          </div>
+          <div class="value-item">
+            <p class="value-title">{t(lang, 'mission.kind.title')}</p>
+            <p class="value-desc" set:html={t(lang, 'mission.kind.desc').replace('\n', '<br />')} />
+          </div>
+        </div>
+      </div>
+      <div class="mission-visual">
+        <div class="mission-image-placeholder">
+          <p>{t(lang, 'mission.visual')}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Business -->
+<section class="section business-section">
+  <div class="container">
+    <p class="section-label fade-up">{t(lang, 'business.label')}</p>
+    <h2 class="section-title fade-up">{t(lang, 'business.title')}</h2>
+    <div class="business-grid">
+      {(['01', '02', '03', '04'] as const).map((num, i) => (
+        <a href={lp('/business')} class={`biz-card fade-up ${i > 0 ? `fade-up-delay-${i}` : ''}`}>
+          <p class="biz-num">{num}</p>
+          <h3>{t(lang, `business.${num}.title`)}</h3>
+          <p>{t(lang, `business.${num}.desc`)}</p>
+          <span class="biz-link">{t(lang, 'business.more')}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Locations -->
+<section class="section locations-section">
+  <div class="container">
+    <p class="section-label fade-up">{t(lang, 'locations.label')}</p>
+    <h2 class="section-title fade-up">{t(lang, 'locations.title')}</h2>
+    <div class="locations-preview">
+      <a href={lp('/locations/osaka-honsha')} class="location-preview-card fade-up">
+        <div class="location-preview-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V7l8-4v18M13 21V3l6 3v15M9 8v.01M9 12v.01M9 16v.01M17 8v.01M17 12v.01M17 16v.01"/></svg>
+        </div>
+        <h3>{t(lang, 'locations.osaka')}</h3>
+        <p>{t(lang, 'locations.osaka.area')}</p>
+        <span class="location-preview-link">{t(lang, 'locations.more')}</span>
+      </a>
+      <a href={lp('/locations/kyushu')} class="location-preview-card fade-up fade-up-delay-1">
+        <div class="location-preview-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V7l8-4v18M13 21V3l6 3v15M9 8v.01M9 12v.01M9 16v.01M17 8v.01M17 12v.01M17 16v.01"/></svg>
+        </div>
+        <h3>{t(lang, 'locations.kyushu')}</h3>
+        <p>{t(lang, 'locations.kyushu.area')}</p>
+        <span class="location-preview-link">{t(lang, 'locations.more')}</span>
+      </a>
+    </div>
+    <div class="locations-cta fade-up">
+      <a href={lp('/locations')} class="btn btn-secondary">{t(lang, 'locations.viewAll')}</a>
+    </div>
+  </div>
+</section>
+
+<!-- EC Platforms -->
+<section class="section ec-section">
+  <div class="container">
+    <p class="section-label fade-up">{t(lang, 'ec.label')}</p>
+    <h2 class="section-title fade-up">{t(lang, 'ec.title')}</h2>
+    <div class="ec-platforms">
+      <a href="http://mega-king.com/kaitori/" target="_blank" class="ec-card fade-up">
+        <div class="ec-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3 set:html={t(lang, 'ec.megaking').replace('\n', '<br />')} />
+        <p>{t(lang, 'ec.megaking.desc')}</p>
+        <span class="ec-link">{t(lang, 'ec.visit')}</span>
+      </a>
+      <a href="https://www.rakuten.co.jp/kig-ltd/" target="_blank" class="ec-card fade-up fade-up-delay-1">
+        <div class="ec-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
+        </div>
+        <h3 set:html={t(lang, 'ec.rakuten').replace('\n', '<br />')} />
+        <p>{t(lang, 'ec.rakuten.desc')}</p>
+        <span class="ec-link">{t(lang, 'ec.store')}</span>
+      </a>
+      <a href="https://auctions.yahoo.co.jp/seller/kig_kaitori" target="_blank" class="ec-card fade-up fade-up-delay-2">
+        <div class="ec-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1" fill="currentColor"/></svg>
+        </div>
+        <h3 set:html={t(lang, 'ec.yahoo.auction').replace('\n', '<br />')} />
+        <p>{t(lang, 'ec.yahoo.auction.desc')}</p>
+        <span class="ec-link">{t(lang, 'ec.store')}</span>
+      </a>
+      <a href="https://shopping.yahoo.co.jp/search?seller_id=kig" target="_blank" class="ec-card fade-up fade-up-delay-3">
+        <div class="ec-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><path d="M1 10h22"/></svg>
+        </div>
+        <h3 set:html={t(lang, 'ec.yahoo.shopping').replace('\n', '<br />')} />
+        <p>{t(lang, 'ec.yahoo.shopping.desc')}</p>
+        <span class="ec-link">{t(lang, 'ec.store')}</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- About KIG -->
+<section class="section about-section">
+  <div class="container about-inner">
+    <div class="about-image fade-up">
+      <img src="https://images.unsplash.com/photo-1553642212-5671ae20c75b?w=500&h=400&fit=crop" alt={t(lang, 'mission.visual')} />
+    </div>
+    <div class="about-text fade-up fade-up-delay-1">
+      <p class="section-label">{t(lang, 'about.label')}</p>
+      <h2 class="section-title">{t(lang, 'about.title.line1')}<br />{t(lang, 'about.title.line2')}</h2>
+      <p class="about-body">{t(lang, 'about.body')}</p>
+      <div class="k-list">
+        <div class="k-item">
+          <span class="k-badge">King</span>
+          <span>{t(lang, 'about.king')}</span>
+        </div>
+        <div class="k-item">
+          <span class="k-badge">Keep</span>
+          <span>{t(lang, 'about.keep')}</span>
+        </div>
+        <div class="k-item">
+          <span class="k-badge">Kind</span>
+          <span>{t(lang, 'about.kind')}</span>
+        </div>
+      </div>
+      <a href={lp('/about')} class="btn btn-secondary" style="margin-top:32px">{t(lang, 'about.cta')}</a>
+    </div>
+    <div class="about-stats fade-up">
+      <div class="stat-box">
+        <p class="stat-year">2010</p>
+        <p class="stat-label-text">{t(lang, 'about.stat.founded')}</p>
+      </div>
+      <div class="stat-box">
+        <p class="stat-num">5<span>{lang === 'en' ? ' offices' : '拠点'}</span></p>
+        <p class="stat-label-text">{t(lang, 'about.stat.offices')}</p>
+      </div>
+      <div class="stat-box">
+        <p class="stat-num">{lang === 'en' ? '¥80M' : '8,000'}<span>{lang === 'en' ? '' : '万円'}</span></p>
+        <p class="stat-label-text">{t(lang, 'about.stat.capital')}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Staff -->
+<section class="section staff-section">
+  <div class="container">
+    <p class="section-label fade-up">{t(lang, 'staff.label')}</p>
+    <h2 class="section-title fade-up">{t(lang, 'staff.title')}</h2>
+    <div class="staff-grid">
+      {staffList.map((s, i) => {
+        const name = t(lang, `staff.${s.key}.name`)
+        const role = t(lang, `staff.${s.key}.role`)
+        return (
+          <div class={`staff-card fade-up ${i > 0 ? `fade-up-delay-${Math.min(i, 3)}` : ''}`}>
+            <div class="staff-avatar">
+              <span>{name.charAt(0)}</span>
+            </div>
+            <p class="staff-name">{name}</p>
+            <p class="staff-role">{role}</p>
+          </div>
+        )
+      })}
+    </div>
+    <div class="staff-cta fade-up">
+      <a href={lp('/staff')} class="btn btn-secondary">{t(lang, 'staff.cta')}</a>
+    </div>
+  </div>
+</section>
+
+<!-- News -->
+<section class="section news-section">
+  <div class="container">
+    <p class="section-label fade-up">{t(lang, 'news.label')}</p>
+    <h2 class="section-title fade-up">{t(lang, 'news.title')}</h2>
+    <div class="news-grid">
+      <a href={lp('/news')} class="news-card fade-up">
+        <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop')"></div>
+        <div class="news-content">
+          <p class="news-tag">{t(lang, 'news.tag.news')}</p>
+          <h3>{t(lang, 'news.1.title')}</h3>
+          <p>{t(lang, 'news.1.desc')}</p>
+          <p class="news-date">2026-02-21</p>
+        </div>
+      </a>
+      <a href={lp('/news')} class="news-card fade-up fade-up-delay-1">
+        <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop')"></div>
+        <div class="news-content">
+          <p class="news-tag">{t(lang, 'news.tag.event')}</p>
+          <h3>{t(lang, 'news.2.title')}</h3>
+          <p>{t(lang, 'news.2.desc')}</p>
+          <p class="news-date">2026-02-20</p>
+        </div>
+      </a>
+      <a href={lp('/news')} class="news-card fade-up fade-up-delay-2">
+        <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop')"></div>
+        <div class="news-content">
+          <p class="news-tag">{t(lang, 'news.tag.recruit')}</p>
+          <h3>{t(lang, 'news.3.title')}</h3>
+          <p>{t(lang, 'news.3.desc')}</p>
+          <p class="news-date">2026-02-19</p>
+        </div>
+      </a>
+    </div>
+    <div class="news-cta fade-up">
+      <a href={lp('/news')} class="btn btn-secondary">{t(lang, 'news.cta')}</a>
+    </div>
+  </div>
+</section>
+
+<!-- Recruit CTA -->
+<section class="cta-parallax cta-orange">
+  <div class="cta-parallax-bg cta-orange-bg"></div>
+  <div class="container recruit-cta-inner fade-up">
+    <div>
+      <p class="section-label">{t(lang, 'recruit.cta.label')}</p>
+      <h2 class="section-title">{t(lang, 'recruit.cta.title.line1')}<br />{t(lang, 'recruit.cta.title.line2')}</h2>
+      <p class="section-desc">{t(lang, 'recruit.cta.desc')}</p>
+    </div>
+    <a href={lp('/recruit')} class="btn btn-white">{t(lang, 'recruit.cta.button')}</a>
+  </div>
+</section>
+
+<style>
+  /* === Orange Accent Overrides === */
+  :global(:root) {
+    --accent-orange: #FF6900;
+    --accent-orange-hover: #E85D00;
+    --accent-orange-light: #FFF3E8;
+    --accent-orange-muted: #FFE0C4;
+    --text-primary: #2D2D2D;
+    --text-secondary: #555555;
+    --text-muted: #888888;
+  }
+
+  /* Hero */
+  .hero-richka {
+    background: var(--white, #ffffff);
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-richka::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 105, 0, 0.04) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 20s ease-in-out infinite;
+  }
+
+  .hero-richka::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 105, 0, 0.03) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 25s ease-in-out infinite reverse;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(30px); }
+  }
+
+  .hero-content {
+    max-width: 900px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-text-wrapper {
+    text-align: center;
+  }
+
+  .hero-brand {
+    font-family: var(--font-heading, 'Poppins', sans-serif);
+    font-size: clamp(13px, 1.5vw, 15px);
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-muted, #888888);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out 0.1s forwards;
+  }
+
+  .hero-title {
+    font-family: var(--font-heading, 'Poppins', sans-serif);
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700;
+    color: var(--text-primary, #2D2D2D);
+    line-height: 1.3;
+    letter-spacing: -0.025em;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out 0.2s forwards;
+  }
+
+  .hero-tagline {
+    font-size: clamp(14px, 1.5vw, 16px);
+    font-style: italic;
+    color: var(--text-muted, #888888);
+    line-height: 1.8;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out 0.35s forwards;
+  }
+
+  .hero-desc {
+    font-size: clamp(15px, 1.5vw, 17px);
+    font-style: italic;
+    color: var(--text-secondary, #555555);
+    line-height: 1.9;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out 0.5s forwards;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out 0.6s forwards;
+  }
+
+  /* Mission */
+  .mission-richka {
+    background: var(--white, #ffffff);
+    padding: 100px 0;
+    position: relative;
+  }
+
+  .mission-richka::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gray-200, #e0e0e0), transparent);
+    opacity: 0.5;
+  }
+
+  .mission-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-orange, #FF6900);
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out 0.2s forwards;
+  }
+
+  .section-title {
+    font-family: var(--font-heading, 'Poppins', sans-serif);
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    color: var(--text-primary, #2D2D2D);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out 0.3s forwards;
+  }
+
+  .mission-description {
+    font-size: 15px;
+    color: var(--text-secondary, #555555);
+    line-height: 1.9;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out 0.4s forwards;
+  }
+
+  .mission-values {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .value-item {
+    background: var(--gray-100, #f7f7f7);
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid var(--gray-200, #e0e0e0);
+    opacity: 0;
+    animation: scaleUp 0.6s ease-out forwards;
+    transition: all 0.3s ease;
+  }
+
+  .value-item:nth-child(1) { animation-delay: 0.5s; }
+  .value-item:nth-child(2) { animation-delay: 0.6s; }
+  .value-item:nth-child(3) { animation-delay: 0.7s; }
+
+  .value-item:hover {
+    background: var(--white, #ffffff);
+    transform: translateY(-4px);
+    border-color: var(--text-primary, #2D2D2D);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  .value-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary, #2D2D2D);
+    margin-bottom: 8px;
+  }
+
+  .value-desc {
+    font-size: 14px;
+    color: var(--text-secondary, #555555);
+    line-height: 1.6;
+  }
+
+  .mission-image-placeholder {
+    background: var(--accent-orange-light, #FFF3E8);
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--accent-orange, #FF6900);
+    font-weight: 600;
+    opacity: 0;
+    animation: slideInRight 0.8s ease-out 0.4s forwards;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Section Common */
+  .section {
+    padding: 100px 0 !important;
+  }
+
+  /* Business */
+  .business-section {
+    background: var(--white, #ffffff);
+    position: relative;
+  }
+
+  .business-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+    position: relative;
+    z-index: 1;
+  }
+  .biz-card {
+    display: block;
+    border: 1px solid var(--gray-200, #e0e0e0);
+    border-radius: 12px;
+    padding: 36px 32px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .biz-card:hover {
+    border-color: var(--text-primary, #2D2D2D);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    transform: translateY(-8px);
+  }
+  .biz-num {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted, #888888);
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+  .biz-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary, #2D2D2D);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .biz-card p {
+    font-size: 14px;
+    color: var(--text-secondary, #555555);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .biz-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted, #888888);
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  .biz-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+  }
+  .biz-card:hover .biz-link::after {
+    width: 100%;
+  }
+
+  /* About */
+  .about-section {
+    background: var(--gray-100, #f7f7f7);
+    position: relative;
+  }
+
+  .about-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .about-image {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md, 0 4px 16px rgba(0,0,0,0.06));
+    order: 1;
+  }
+  .about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .about-text {
+    order: 2;
+  }
+  .about-body {
+    font-size: 15px;
+    color: var(--text-secondary, #555555);
+    line-height: 1.85;
+    margin: 24px 0 32px;
+  }
+  .k-list { display: flex; flex-direction: column; gap: 16px; }
+  .k-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 14px;
+    color: var(--text-primary, #2D2D2D);
+  }
+  .k-badge {
+    background: var(--accent-orange, #FF6900);
+    color: var(--white, #fff);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .about-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 56px;
+  }
+  .stat-box {
+    background: var(--white, #fff);
+    border: 1px solid var(--gray-200, #e0e0e0);
+    border-radius: 12px;
+    padding: 28px 32px;
+    transition: all 0.3s ease;
+  }
+  .stat-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    border-color: var(--text-primary, #2D2D2D);
+  }
+  .stat-year {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--text-primary, #2D2D2D);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-num {
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--text-primary, #2D2D2D);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-num span {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-muted, #888888);
+    margin-left: 4px;
+  }
+  .stat-label-text {
+    font-size: 13px;
+    color: var(--text-muted, #888888);
+  }
+
+  /* Staff */
+  .staff-section {
+    background: var(--white, #ffffff);
+    position: relative;
+  }
+
+  .staff-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .staff-card {
+    text-align: center;
+    padding: 32px 24px;
+    border: 1px solid var(--gray-200, #e0e0e0);
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .staff-card:hover {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    transform: translateY(-8px);
+    border-color: var(--text-primary, #2D2D2D);
+  }
+  .staff-avatar {
+    width: 72px;
+    height: 72px;
+    background: var(--accent-orange-light, #FFF3E8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent-orange, #FF6900);
+  }
+  .staff-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary, #2D2D2D);
+    margin-bottom: 6px;
+  }
+  .staff-role {
+    font-size: 13px;
+    color: var(--text-secondary, #555555);
+  }
+  .staff-cta {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  /* Locations */
+  .locations-section {
+    background: var(--gray-100, #f7f7f7);
+    position: relative;
+  }
+
+  .locations-preview {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    margin-top: 48px;
+  }
+  .location-preview-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 32px;
+    border: 1px solid var(--gray-200, #e0e0e0);
+    border-radius: 12px;
+    background: var(--white, #ffffff);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .location-preview-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    border-color: var(--text-primary, #2D2D2D);
+  }
+  .location-preview-icon {
+    color: var(--text-muted, #888888);
+    margin-bottom: 16px;
+  }
+  .location-preview-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary, #2D2D2D);
+    margin-bottom: 8px;
+  }
+  .location-preview-card p {
+    font-size: 13px;
+    color: var(--text-secondary, #555555);
+    margin-bottom: 16px;
+  }
+  .location-preview-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted, #888888);
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  .location-preview-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+  }
+  .location-preview-card:hover .location-preview-link::after {
+    width: 100%;
+  }
+  .locations-cta {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  /* EC Platforms */
+  .ec-section {
+    background: var(--white, #ffffff);
+    position: relative;
+  }
+
+  .ec-platforms {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .ec-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 36px 28px;
+    border: 1px solid var(--gray-200, #e0e0e0);
+    border-radius: 12px;
+    background: var(--white, #fff);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .ec-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    border-color: var(--text-primary, #2D2D2D);
+  }
+  .ec-icon {
+    color: var(--text-muted, #888888);
+    margin-bottom: 16px;
+  }
+  .ec-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary, #2D2D2D);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .ec-card p {
+    font-size: 13px;
+    color: var(--text-secondary, #555555);
+    margin-bottom: 16px;
+  }
+  .ec-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted, #888888);
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  .ec-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+  }
+  .ec-card:hover .ec-link::after {
+    width: 100%;
+  }
+
+  /* News */
+  .news-section {
+    background: var(--gray-100, #f7f7f7);
+    position: relative;
+  }
+
+  .news-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+  }
+  .news-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--gray-200, #e0e0e0);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--white, #ffffff);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .news-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    border-color: var(--text-primary, #2D2D2D);
+  }
+  .news-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+  }
+  .news-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .news-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    width: fit-content;
+    background: var(--accent-orange-light, #FFF3E8);
+    color: var(--accent-orange, #FF6900);
+  }
+  .news-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary, #2D2D2D);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .news-card p {
+    font-size: 14px;
+    color: var(--text-secondary, #555555);
+    line-height: 1.6;
+  }
+  .news-date {
+    font-size: 12px;
+    color: var(--text-muted, #888888);
+    margin-top: auto;
+    padding-top: 12px;
+    margin: 0 !important;
+  }
+  .news-cta {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  /* Accent Button */
+  .btn-accent {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 32px;
+    border-radius: 6px;
+    min-height: 44px;
+    border: none;
+    cursor: pointer;
+    background: var(--accent-orange, #FF6900);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(255, 105, 0, 0.2);
+    transition: all 0.2s ease;
+  }
+  .btn-accent:hover {
+    background: var(--accent-orange-hover, #E85D00);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(255, 105, 0, 0.3);
+  }
+
+  /* Recruit CTA */
+  .recruit-cta-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+  }
+  .btn-white {
+    background: var(--white, #fff);
+    color: var(--accent-orange, #FF6900);
+    font-weight: 600;
+    flex-shrink: 0;
+    padding: 12px 32px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .btn-white:hover {
+    background: var(--accent-orange-light, #FFF3E8);
+    transform: translateY(-1px);
+  }
+
+  /* Orange CTA Override */
+  .cta-orange-bg {
+    background: linear-gradient(135deg, #FF6900 0%, #E85D00 50%, #D35400 100%) !important;
+  }
+  .cta-orange .section-label {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+  .cta-orange .section-title {
+    color: #fff !important;
+  }
+  .cta-orange .section-title::after {
+    background: rgba(255, 255, 255, 0.4) !important;
+  }
+
+  @media (max-width: 1024px) {
+    .hero-title { font-size: 42px; }
+    .section-title { font-size: 32px; }
+    .mission-layout { grid-template-columns: 1fr; gap: 40px; }
+    .business-grid { grid-template-columns: repeat(2, 1fr); }
+    .news-grid { grid-template-columns: repeat(2, 1fr); }
+    .ec-platforms { grid-template-columns: repeat(2, 1fr); }
+    .locations-preview { grid-template-columns: 1fr; }
+    .mission-values { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .hero-richka { padding: 80px 0; }
+    .mission-richka { padding: 80px 0; }
+    .section { padding: 80px 0 !important; }
+    .hero-title { font-size: 32px; }
+    .hero-tagline { font-size: 14px; }
+    .section-title { font-size: 28px; }
+    .business-grid { grid-template-columns: 1fr; gap: 20px; }
+    .about-inner { grid-template-columns: 1fr; gap: 40px; }
+    .about-text { order: 2; }
+    .about-image { order: 1; }
+    .staff-grid { grid-template-columns: repeat(2, 1fr); }
+    .news-grid { grid-template-columns: 1fr; }
+    .ec-platforms { grid-template-columns: 1fr; }
+    .locations-preview { grid-template-columns: 1fr; }
+    .mission-layout { grid-template-columns: 1fr; }
+    .mission-values { grid-template-columns: 1fr; }
+    .recruit-cta-inner { flex-direction: column; text-align: center; }
+    .container { padding: 0 20px; }
+    .hero-cta { flex-direction: column; }
+  }
+</style>
+
+<style>
+  /* Animation definitions */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideInRight {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes scaleUp {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  /* Fade-up classes */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .fade-up.visible {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .fade-up-delay-1.visible { animation-delay: 0.1s; }
+  .fade-up-delay-2.visible { animation-delay: 0.2s; }
+  .fade-up-delay-3.visible { animation-delay: 0.3s; }
+
+  /* Section title underline */
+  .section-title {
+    position: relative;
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--accent-orange, #FF6900);
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+  }
+
+  .section-title.visible::after {
+    opacity: 1;
+  }
+
+  /* Scroll animation for stat numbers */
+  .stat-box.visible .stat-num,
+  .stat-box.visible .stat-year {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<script>
+  // Intersection Observer - scroll animation
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible')
+      }
+    })
+  }, observerOptions)
+
+  document.querySelectorAll('.fade-up, .section-title, .stat-box').forEach(el => {
+    observer.observe(el)
+  })
+
+  // Header shadow on scroll
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('header')
+    if (header) {
+      if (window.scrollY > 10) {
+        header.classList.add('scrolled')
+      } else {
+        header.classList.remove('scrolled')
+      }
+    }
+  })
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault()
+      const target = document.querySelector(this.getAttribute('href'))
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        })
+      }
+    })
+  })
+
+  // Parallax effect (CTA section)
+  const ctaParallax = document.querySelector('.cta-parallax-bg')
+  if (ctaParallax) {
+    window.addEventListener('scroll', () => {
+      const section = ctaParallax.parentElement
+      if (section) {
+        const rect = section.getBoundingClientRect()
+        const scrollPercent = rect.top / window.innerHeight
+        ctaParallax.style.transform = `translateY(${scrollPercent * 30}px)`
+      }
+    })
+  }
+</script>

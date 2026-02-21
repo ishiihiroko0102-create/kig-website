@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Header from '../../components/Header.astro'
+import Footer from '../../components/Footer.astro'
+import BusinessPage from '../../components/BusinessPage.astro'
+import { getLangFromUrl } from '../../i18n/utils'
+import { t } from '../../i18n/translations'
+
+const lang = getLangFromUrl(Astro.url)
+---
+
+<Layout title={t(lang, 'bizPage.title')}>
+  <Header />
+  <main>
+    <BusinessPage />
+  </main>
+  <Footer />
+</Layout>

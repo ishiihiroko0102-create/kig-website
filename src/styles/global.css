@@ -1,71 +1,112 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap');
 
+/* ========================================
+   CSS Variables — Monochrome Minimal Design
+   richka.co.jp inspired aesthetic
+   ======================================== */
 :root {
-  --navy: #0d1f6e;
-  --navy-mid: #1a3a8f;
-  --navy-light: #e8edf8;
-  --accent: #1e4fd8;
-  --black: #111827;
-  --gray-700: #374151;
-  --gray-500: #6b7280;
-  --gray-200: #e5e7eb;
-  --gray-100: #f3f4f6;
-  --white: #ffffff;
-  --font: 'Inter', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
+  /* Primary (Monochrome) */
+  --primary: #0a0a0a;
+  --primary-mid: #1a1a1a;
+  --primary-light: #f5f5f5;
+  --accent: #0a0a0a;
 
-  /* Design Concept Colors - MDS Fund Style */
-  --mds-bg-primary: #FFFFFF;
-  --mds-bg-secondary: #F5F7FA;
-  --mds-text-primary: #1a202c;
-  --mds-text-secondary: #4a5568;
-  --mds-text-tertiary: #718096;
-  --mds-accent-blue: #0066cc;
-  --mds-accent-light: #e6f0ff;
-  --mds-border: #e2e8f0;
-  --mds-gold: #d4af37;
-  --mds-hover: #004d99;
+  /* Neutrals */
+  --black: #0a0a0a;
+  --gray-700: #333333;
+  --gray-500: #666666;
+  --gray-300: #cccccc;
+  --gray-200: #e0e0e0;
+  --gray-100: #f7f7f7;
+  --white: #ffffff;
+
+  /* Accent — subtle warm tone */
+  --accent-warm: #c8a96e;
+  --cta: #0a0a0a;
+  --cta-hover: #333333;
+  --cta-light: #f0f0f0;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.08);
+
+  /* Typography */
+  --font-heading: 'Poppins', 'Inter', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  --font-body: 'Inter', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
+/* ========================================
+   Reset & Base
+   ======================================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
 body {
-  font-family: var(--font);
+  font-family: var(--font-body);
   color: var(--black);
   background: var(--white);
-  line-height: 1.6;
+  line-height: 1.7;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
-
-a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
 button { cursor: pointer; border: none; font-family: inherit; }
 
+/* ========================================
+   Container / Layout
+   ======================================== */
 .container {
   max-width: 1160px;
   margin: 0 auto;
   padding: 0 40px;
 }
 
-.section { padding: 96px 0; }
+.section { padding: clamp(64px, 8vw, 120px) 0; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-gray { background: var(--gray-100); }
+.section-dark { background: var(--primary); color: var(--white); }
 
-/* Scroll animation */
-.fade-up {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.fade-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* ========================================
+   Loading Screen
+   ======================================== */
+.loader { position: fixed; inset: 0; z-index: 9999; background: var(--white); display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.6s ease-out, visibility 0.6s ease-out; }
+.loader.done { opacity: 0; visibility: hidden; }
+.loader-brand { font-family: var(--font-heading); font-size: 28px; font-weight: 800; color: var(--black); letter-spacing: 0.12em; margin-bottom: 24px; }
+.loader-bar { width: 120px; height: 2px; background: var(--gray-200); border-radius: 2px; overflow: hidden; }
+.loader-bar-inner { width: 0%; height: 100%; background: var(--black); animation: loaderProgress 1.2s ease forwards; }
+@keyframes loaderProgress { to { width: 100%; } }
+
+/* ========================================
+   Scroll Reveal Animations
+   ======================================== */
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-48px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(48px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+.fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
 .fade-up-delay-1 { transition-delay: 0.1s; }
 .fade-up-delay-2 { transition-delay: 0.2s; }
 .fade-up-delay-3 { transition-delay: 0.3s; }
 
-/* Typography */
+/* Stagger delays */
+.d1 { transition-delay: 0.1s; }
+.d2 { transition-delay: 0.2s; }
+.d3 { transition-delay: 0.3s; }
+.d4 { transition-delay: 0.4s; }
+.d5 { transition-delay: 0.5s; }
+.d6 { transition-delay: 0.6s; }
+
+/* ========================================
+   Typography
+   ======================================== */
 .page-title {
+  font-family: var(--font-heading);
   font-size: clamp(32px, 4vw, 52px);
   font-weight: 700;
   letter-spacing: -0.025em;
@@ -75,42 +116,183 @@ button { cursor: pointer; border: none; font-family: inherit; }
 .section-label {
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 16px;
+  color: var(--gray-500);
+  margin-bottom: 8px;
 }
 .section-title {
-  font-size: clamp(26px, 3vw, 40px);
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 4vw, 48px);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  line-height: 1.3;
+  margin-bottom: 16px;
   color: var(--black);
 }
+.section-desc {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--gray-500);
+  max-width: 640px;
+}
 
-/* Buttons */
+/* ========================================
+   Buttons — Monochrome System
+   ======================================== */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 15px;
-  font-weight: 500;
-  padding: 13px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 32px;
   border-radius: 6px;
   transition: all 0.2s ease;
-  letter-spacing: 0.01em;
+  min-height: 44px;
+  border: none;
+  cursor: pointer;
 }
-.btn-navy {
-  background: var(--navy);
-  color: var(--white);
-}
-.btn-navy:hover { background: var(--navy-mid); }
 
-.btn-outline-navy {
-  border: 1.5px solid var(--navy);
-  color: var(--navy);
-}
-.btn-outline-navy:hover {
-  background: var(--navy);
+.btn-primary {
+  background: var(--cta);
   color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+.btn-primary:hover {
+  background: var(--cta-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--gray-700);
+  border: 1px solid var(--gray-200);
+}
+.btn-secondary:hover {
+  background: var(--gray-100);
+  border-color: var(--gray-300);
+  transform: translateY(-1px);
+}
+
+.btn-dark {
+  background: var(--primary);
+  color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+.btn-dark:hover {
+  background: var(--primary-mid);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--gray-200);
+}
+.btn-outline:hover {
+  background: var(--cta-light);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+/* Legacy button class compatibility */
+.btn-navy { background: var(--cta); color: var(--white); box-shadow: var(--shadow-sm); }
+.btn-navy:hover { background: var(--cta-hover); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.btn-outline-navy { background: transparent; color: var(--gray-700); border: 1px solid var(--gray-200); }
+.btn-outline-navy:hover { background: var(--gray-100); border-color: var(--gray-300); transform: translateY(-1px); }
+.btn-outline-gray { background: transparent; color: var(--gray-700); border: 1px solid var(--gray-200); }
+.btn-outline-gray:hover { background: var(--gray-100); border-color: var(--gray-300); transform: translateY(-1px); }
+
+/* Dark section variant */
+.section-dark .btn-secondary,
+.cta-parallax .btn-secondary {
+  color: var(--white); border-color: rgba(255,255,255,0.3);
+}
+.section-dark .btn-secondary:hover,
+.cta-parallax .btn-secondary:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.5); }
+
+/* ========================================
+   Hero — charReveal Animation
+   ======================================== */
+.hero-title .char {
+  display: inline-block; opacity: 0; transform: translateY(30px);
+  animation: charReveal 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+@keyframes charReveal { to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes heroSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Scroll indicator */
+.hero-scroll span::after { content: ""; position: absolute; top: -60px; left: 0; width: 1px; height: 60px; background: var(--black); animation: scrollDrop 1.8s ease-in-out infinite; }
+@keyframes scrollDrop { 0% { transform: translateY(0); } 100% { transform: translateY(120px); } }
+
+/* ========================================
+   News Tabs
+   ======================================== */
+.news-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--gray-200); margin-bottom: 32px; }
+.news-tab {
+  padding: 10px 20px; font-size: 13px; font-weight: 500; color: var(--gray-500);
+  cursor: pointer; border: none; background: none; position: relative; transition: color 0.2s ease;
+}
+.news-tab::after { content: ""; position: absolute; bottom: -1px; left: 0; width: 100%; height: 2px; background: var(--primary); transform: scaleX(0); transition: transform 0.3s ease; }
+.news-tab.active { color: var(--primary); font-weight: 600; }
+.news-tab.active::after { transform: scaleX(1); }
+.news-panel { display: none; animation: tabIn 0.35s ease; }
+.news-panel.active { display: block; }
+@keyframes tabIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ========================================
+   Parallax CTA
+   ======================================== */
+.cta-parallax {
+  position: relative; padding: clamp(80px, 10vw, 140px) clamp(20px, 4vw, 48px);
+  text-align: center; overflow: hidden; color: var(--white);
+}
+.cta-parallax-bg { position: absolute; inset: -20%; background: linear-gradient(135deg, #0a0a0a 0%, #222222 100%); z-index: 0; will-change: transform; }
+.cta-parallax > * { position: relative; z-index: 1; }
+.cta-parallax .section-label { color: rgba(255,255,255,0.5); }
+.cta-parallax .section-title { color: var(--white); }
+.cta-parallax .section-desc { color: rgba(255,255,255,0.7); margin: 0 auto; }
+
+/* ========================================
+   Responsive
+   ======================================== */
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  .section { padding: clamp(48px, 10vw, 80px) 0; }
+}
+
+/* ========================================
+   prefers-reduced-motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  html { scroll-behavior: auto; }
+  .reveal, .reveal-left, .reveal-right,
+  .fade-up { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .hero-title .char { opacity: 1 !important; transform: none !important; animation: none !important; }
+  .loader { display: none !important; }
+  .cta-parallax-bg { transform: none !important; }
+  .hero-scroll span::after { animation: none !important; }
+  .news-panel { animation: none !important; }
+}
+
+/* ========================================
+   Accessibility — Focus
+   ======================================== */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (forced-colors: active) {
+  .btn-primary, .btn-dark, .btn-navy { border: 2px solid ButtonText; }
 }

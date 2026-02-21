@@ -1,12 +1,61 @@
 ---
+import { getLangFromUrl, getAlternateUrl } from '../i18n/utils'
+import { t } from '../i18n/translations'
+
+const lang = getLangFromUrl(Astro.url)
+const currentPath = Astro.url.pathname
+const jaUrl = getAlternateUrl(currentPath, 'ja')
+const enUrl = getAlternateUrl(currentPath, 'en')
+const lp = (path: string) => lang === 'ja' ? path : `/en${path}`
 ---
 <footer>
+  <!-- Contact Us CTA -->
+  <div class="footer-cta">
+    <div class="container">
+      <a href={lp('/contact')} class="footer-cta-link">
+        <span class="footer-cta-text">{t(lang, 'footer.contact')}</span>
+        <span class="footer-cta-arrow">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+      <div class="footer-cta-line"></div>
+    </div>
+  </div>
+
+  <!-- Footer Main -->
   <div class="footer-main">
     <div class="container footer-grid">
-      <div class="footer-brand">
-        <p class="footer-logo">KIG</p>
-        <p class="footer-tagline">No improve without lasting.</p>
-        <p class="footer-desc">中古自動車パーツの買取・販売を基盤に、<br />EC運用・Web事業を幅広く展開しています。</p>
+      <div class="footer-nav-col">
+        <p class="footer-heading">{t(lang, 'footer.heading.company')}</p>
+        <ul>
+          <li><a href={lp('/about') + '#concept'}>{t(lang, 'nav.about.concept')}</a></li>
+          <li><a href={lp('/about') + '#introduction'}>{t(lang, 'nav.about.introduction')}</a></li>
+          <li><a href={lp('/about') + '#info'}>{t(lang, 'nav.about.info')}</a></li>
+          <li><a href={lp('/staff')}>{t(lang, 'nav.about.staff')}</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <p class="footer-heading">{t(lang, 'footer.heading.business')}</p>
+        <ul>
+          <li><a href={lp('/business')}>{lang === 'ja' ? 'メガキングドットコム' : 'Mega King .com'}</a></li>
+          <li><a href="https://www.rakuten.co.jp/kig-ltd/" target="_blank">{t(lang, 'nav.store')}</a></li>
+          <li><a href={lp('/business')}>{lang === 'ja' ? 'WEB事業部' : 'Web Division'}</a></li>
+          <li><a href={lp('/business')}>{lang === 'ja' ? 'オリジナル商品制作' : 'Original Products'}</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <p class="footer-heading">{t(lang, 'footer.heading.recruitContact')}</p>
+        <ul>
+          <li><a href={lp('/recruit')}>{t(lang, 'nav.recruit')}</a></li>
+          <li><a href={lp('/contact')}>{t(lang, 'nav.contact')}</a></li>
+          <li><a href={lp('/news')}>{t(lang, 'nav.news')}</a></li>
+        </ul>
+      </div>
+      <div class="footer-info-col">
+        <p class="footer-heading">{t(lang, 'footer.heading.office')}</p>
+        <p class="footer-company">{t(lang, 'footer.company.name')}</p>
+        <p class="footer-address">{t(lang, 'footer.company.zip')}<br />{t(lang, 'footer.company.address')}</p>
+        <p class="footer-heading" style="margin-top: 32px;">{t(lang, 'footer.heading.followUs')}</p>
         <div class="footer-sns">
           <a href="https://www.facebook.com/megaking.com.kig/" target="_blank" aria-label="Facebook">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -16,87 +65,76 @@
           </a>
         </div>
       </div>
-      <div>
-        <p class="footer-heading">会社</p>
-        <ul>
-          <li><a href="/about#concept">企業理念</a></li>
-          <li><a href="/about#introduction">会社紹介</a></li>
-          <li><a href="/about#info">会社情報</a></li>
-          <li><a href="/staff">スタッフ紹介</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-heading">事業</p>
-        <ul>
-          <li><a href="/business">メガキングドットコム</a></li>
-          <li><a href="https://www.rakuten.co.jp/kig-ltd/" target="_blank">楽天ストア</a></li>
-          <li><a href="/business">WEB事業部</a></li>
-          <li><a href="/business">オリジナル商品制作</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-heading">採用・お問い合わせ</p>
-        <ul>
-          <li><a href="/recruit">採用情報</a></li>
-          <li><a href="/contact">お問い合わせ</a></li>
-        </ul>
-        <div class="footer-contact-info">
-          <p>TEL: 06-6225-1609</p>
-          <p>平日 10:00〜18:00</p>
-        </div>
-      </div>
     </div>
   </div>
+
+  <!-- Footer Bottom -->
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
-      <p class="copyright">Copyright &copy; 2026 株式会社KIG. All rights reserved.</p>
-      <a href="/" class="back-to-top">↑ トップへ</a>
+      <div class="footer-bottom-left">
+        <p class="footer-logo">KIG</p>
+        <div class="lang-toggle">
+          <a href={jaUrl} class={`lang-label ${lang === 'ja' ? 'lang-active' : ''}`}>Ja</a>
+          <span class={`lang-switch-track ${lang === 'en' ? 'en' : ''}`}>
+            <a href={lang === 'ja' ? enUrl : jaUrl} class="lang-switch-link" aria-label="言語切替">
+              <span class="lang-switch-knob"></span>
+            </a>
+          </span>
+          <a href={enUrl} class={`lang-label ${lang === 'en' ? 'lang-active' : ''}`}>En</a>
+        </div>
+      </div>
+      <a href={lp('/privacy')} class="footer-link">{t(lang, 'footer.privacy')}</a>
+      <p class="copyright">&copy; 2026 {t(lang, 'footer.company.name')}</p>
     </div>
   </div>
 </footer>
 
 <style>
-  footer { background: #0d1f6e; color: rgba(255,255,255,0.7); }
-  .footer-main { padding: 72px 0 48px; }
+  footer { background: #1a1a1a; color: rgba(255,255,255,0.7); }
+
+  /* Contact Us CTA */
+  .footer-cta { padding: 80px 0 0; }
+  .footer-cta-link {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    transition: opacity 0.3s ease;
+  }
+  .footer-cta-link:hover { opacity: 0.7; }
+  .footer-cta-text {
+    font-family: var(--font-heading, 'Poppins', sans-serif);
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  .footer-cta-arrow {
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .footer-cta-arrow svg {
+    width: clamp(32px, 5vw, 48px);
+    height: clamp(32px, 5vw, 48px);
+  }
+  .footer-cta-line {
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+    margin-top: 40px;
+  }
+
+  /* Footer Main */
+  .footer-main { padding: 48px 0; }
   .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    grid-template-columns: 1fr 1fr 1fr 1.5fr;
     gap: 48px;
   }
-  .footer-logo {
-    font-size: 28px;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: 0.06em;
-    margin-bottom: 8px;
-  }
-  .footer-tagline {
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-    font-style: italic;
-    margin-bottom: 16px;
-  }
-  .footer-desc {
-    font-size: 13px;
-    line-height: 1.8;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 24px;
-  }
-  .footer-sns {
-    display: flex;
-    gap: 16px;
-  }
-  .footer-sns a {
-    color: rgba(255,255,255,0.5);
-    transition: color 0.2s;
-  }
-  .footer-sns a:hover { color: #fff; }
   .footer-heading {
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
+    color: #fff;
     margin-bottom: 16px;
   }
   ul {
@@ -107,16 +145,31 @@
   }
   ul a {
     font-size: 14px;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.5);
     transition: color 0.2s;
   }
   ul a:hover { color: #fff; }
-  .footer-contact-info {
-    margin-top: 20px;
+  .footer-company {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 8px;
+  }
+  .footer-address {
     font-size: 13px;
     color: rgba(255,255,255,0.4);
     line-height: 1.8;
   }
+  .footer-sns {
+    display: flex;
+    gap: 16px;
+  }
+  .footer-sns a {
+    color: rgba(255,255,255,0.4);
+    transition: color 0.2s;
+  }
+  .footer-sns a:hover { color: #fff; }
+
+  /* Footer Bottom */
   .footer-bottom {
     border-top: 1px solid rgba(255,255,255,0.1);
     padding: 20px 0;
@@ -126,15 +179,89 @@
     justify-content: space-between;
     align-items: center;
   }
-  .copyright { font-size: 12px; color: rgba(255,255,255,0.35); }
-  .back-to-top {
-    font-size: 12px;
-    color: rgba(255,255,255,0.4);
+  .footer-bottom-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .footer-logo {
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.06em;
+  }
+
+  /* Language Toggle */
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .lang-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    font-weight: 500;
     transition: color 0.2s;
   }
-  .back-to-top:hover { color: #fff; }
+  .lang-label:hover {
+    color: rgba(255,255,255,0.7);
+  }
+  .lang-label.lang-active {
+    color: #fff;
+  }
+  .lang-switch-track {
+    position: relative;
+    display: block;
+    width: 36px;
+    height: 20px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    transition: background 0.2s;
+  }
+  .lang-switch-track:hover {
+    background: rgba(255,255,255,0.25);
+  }
+  .lang-switch-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .lang-switch-knob {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+  }
+  .lang-switch-track.en .lang-switch-knob {
+    transform: translateX(16px);
+  }
+
+  .footer-link {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+  .footer-link:hover { color: #fff; }
+  .copyright {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+  }
+
   @media (max-width: 768px) {
+    .footer-cta-text { font-size: 36px; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-    .footer-bottom-inner { flex-direction: column; gap: 8px; text-align: center; }
+    .footer-bottom-inner {
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+    }
+    .footer-bottom-left { justify-content: center; }
   }
 </style>

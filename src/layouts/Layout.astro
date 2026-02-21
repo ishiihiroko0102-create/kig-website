@@ -1,17 +1,22 @@
 ---
 import '../styles/global.css'
+import { getLangFromUrl } from '../i18n/utils'
+import type { Locale } from '../i18n/utils'
 
 interface Props {
   title: string
   description?: string
+  lang?: Locale
 }
 
-const { title, description = 'KIG - 中古自動車部品の信頼できるパートナー' } = Astro.props
+const detectedLang = getLangFromUrl(Astro.url)
+const { title, description = detectedLang === 'en' ? 'KIG - Your trusted partner for used auto parts' : 'KIG - 中古自動車部品の信頼できるパートナー', lang = detectedLang } = Astro.props
 const isStaging = import.meta.env.MODE === 'production' ? false : true
+const siteName = lang === 'en' ? 'KIG Inc.' : '株式会社KIG'
 ---
 
 <!doctype html>
-<html lang="ja">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,15 +25,20 @@ const isStaging = import.meta.env.MODE === 'production' ? false : true
     <!-- Staging環境のSEO保護 -->
     {isStaging && <meta name="robots" content="noindex, nofollow" />}
 
-    <title>{title} - 株式会社KIG</title>
+    <title>{title} - {siteName}</title>
 
     <!-- Canonical URL -->
     <link rel="canonical" href={`${import.meta.env.PUBLIC_SITE_URL || 'http://localhost:4321'}${Astro.url.pathname}`} />
+
+    <!-- Alternate language links -->
+    <link rel="alternate" hreflang="ja" href={`${import.meta.env.PUBLIC_SITE_URL || 'http://localhost:4321'}${Astro.url.pathname.replace(/^\/en\//, '/').replace(/^\/en$/, '/')}`} />
+    <link rel="alternate" hreflang="en" href={`${import.meta.env.PUBLIC_SITE_URL || 'http://localhost:4321'}/en${Astro.url.pathname.replace(/^\/en\//, '/').replace(/^\/en$/, '/')}`} />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'ja_JP'} />
     <meta property="og:image" content={`${import.meta.env.PUBLIC_SITE_URL || 'http://localhost:4321'}/og-image.jpg`} />
   </head>
   <body>
@@ -38,12 +48,12 @@ const isStaging = import.meta.env.MODE === 'production' ? false : true
 
 <style is:global>
   html {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-    background-color: #fafafa
+    font-family: var(--font-body, 'Inter', 'Hiragino Sans', sans-serif);
+    background-color: var(--white, #ffffff);
   }
 
   body {
-    margin: 0
-    padding: 0
+    margin: 0;
+    padding: 0;
   }
 </style>

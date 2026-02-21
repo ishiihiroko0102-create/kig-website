@@ -1,0 +1,287 @@
+---
+import { getLangFromUrl, getLocalizedPath } from '../i18n/utils'
+import { t } from '../i18n/translations'
+
+const lang = getLangFromUrl(Astro.url)
+const lp = (path: string) => getLocalizedPath(path, lang)
+
+const newsItems = [
+  {
+    id: 1,
+    title: t(lang, 'news.1.title'),
+    description: t(lang, 'news.1.desc'),
+    category: 'news',
+    categoryLabel: t(lang, 'newsPage.filter.news'),
+    date: lang === 'ja' ? '2026年2月21日' : 'February 21, 2026',
+    image: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=600&h=400&fit=crop'
+  },
+  {
+    id: 2,
+    title: t(lang, 'news.2.title'),
+    description: t(lang, 'news.2.desc'),
+    category: 'event',
+    categoryLabel: t(lang, 'newsPage.filter.event'),
+    date: lang === 'ja' ? '2026年2月20日' : 'February 20, 2026',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop'
+  },
+  {
+    id: 3,
+    title: t(lang, 'news.3.title'),
+    description: t(lang, 'news.3.desc'),
+    category: 'recruit',
+    categoryLabel: t(lang, 'newsPage.filter.recruit'),
+    date: lang === 'ja' ? '2026年2月19日' : 'February 19, 2026',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop'
+  },
+  {
+    id: 4,
+    title: t(lang, 'newsPage.4.title'),
+    description: t(lang, 'newsPage.4.desc'),
+    category: 'news',
+    categoryLabel: t(lang, 'newsPage.filter.news'),
+    date: lang === 'ja' ? '2026年2月18日' : 'February 18, 2026',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop'
+  },
+  {
+    id: 5,
+    title: t(lang, 'newsPage.5.title'),
+    description: t(lang, 'newsPage.5.desc'),
+    category: 'news',
+    categoryLabel: t(lang, 'newsPage.filter.news'),
+    date: lang === 'ja' ? '2026年2月17日' : 'February 17, 2026',
+    image: 'https://images.unsplash.com/photo-1553642212-5671ae20c75b?w=600&h=400&fit=crop'
+  },
+  {
+    id: 6,
+    title: t(lang, 'newsPage.6.title'),
+    description: t(lang, 'newsPage.6.desc'),
+    category: 'news',
+    categoryLabel: t(lang, 'newsPage.filter.news'),
+    date: lang === 'ja' ? '2026年2月16日' : 'February 16, 2026',
+    image: 'https://images.unsplash.com/photo-1590080876-35a6adf42b4f?w=600&h=400&fit=crop'
+  }
+]
+
+const categories = [
+  { id: 'all', label: t(lang, 'newsPage.filter.all') },
+  { id: 'news', label: t(lang, 'newsPage.filter.news') },
+  { id: 'event', label: t(lang, 'newsPage.filter.event') },
+  { id: 'recruit', label: t(lang, 'newsPage.filter.recruit') }
+]
+---
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href={lp('/')}>{t(lang, 'common.home')}</a> / {t(lang, 'newsPage.breadcrumb')}</p>
+    <h1 class="page-title">{t(lang, 'newsPage.heroTitle')}</h1>
+    <p class="page-sub">{t(lang, 'newsPage.heroSub')}</p>
+  </div>
+</section>
+
+<!-- News List -->
+<section class="section news-list-section">
+  <div class="container">
+
+    <!-- Filter -->
+    <div class="filter-tabs fade-up">
+      {categories.map((cat) => (
+        <button class={`filter-btn ${cat.id === 'all' ? 'active' : ''}`} data-filter={cat.id}>
+          {cat.label}
+        </button>
+      ))}
+    </div>
+
+    <!-- News Grid -->
+    <div class="news-items-grid">
+      {newsItems.map((item, idx) => (
+        <a href={lp(`/news/${item.id}`)} class={`news-item fade-up ${idx > 0 ? `fade-up-delay-${Math.min(idx, 3)}` : ''}`} data-category={item.category}>
+          <div class="news-item-image">
+            <img src={item.image} alt={item.title} />
+          </div>
+          <div class="news-item-content">
+            <p class={`news-item-tag tag-${item.category}`}>{item.categoryLabel}</p>
+            <h3 class="news-item-title">{item.title}</h3>
+            <p class="news-item-desc">{item.description}</p>
+            <p class="news-item-date">{item.date}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    padding: 60px 0;
+  }
+  .breadcrumb {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 16px;
+  }
+  .breadcrumb a { color: rgba(255,255,255,0.5); }
+  .page-title { color: #fff; margin-bottom: 12px; }
+  .page-sub { color: rgba(255,255,255,0.65); font-size: 16px; }
+
+  .news-list-section { background: #fff; }
+
+  /* Filter */
+  .filter-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    padding: 10px 20px;
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333333;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .filter-btn:hover {
+    border-color: #0a0a0a;
+    color: #0a0a0a;
+  }
+  .filter-btn.active {
+    background: #0a0a0a;
+    color: #fff;
+    border-color: #0a0a0a;
+  }
+
+  /* News Grid */
+  .news-items-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .news-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  .news-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+    border-color: #0a0a0a;
+  }
+  .news-item-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: #f5f5f5;
+  }
+  .news-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  .news-item:hover .news-item-image img {
+    transform: scale(1.05);
+  }
+  .news-item-content {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .news-item-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+    width: fit-content;
+  }
+  .tag-news {
+    background: #f5f5f5;
+    color: #0a0a0a;
+  }
+  .tag-event {
+    background: #f5f5f5;
+    color: #333333;
+  }
+  .tag-recruit {
+    background: #f5f5f5;
+    color: #333333;
+  }
+  .news-item-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0a0a0a;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .news-item-desc {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.7;
+    margin-bottom: auto;
+  }
+  .news-item-date {
+    font-size: 12px;
+    color: #cccccc;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #e0e0e0;
+  }
+
+  @media (max-width: 1024px) {
+    .news-items-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .news-items-grid { grid-template-columns: 1fr; }
+    .filter-tabs { margin-bottom: 32px; }
+  }
+</style>
+
+<script>
+  // Scroll animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible')
+        observer.unobserve(entry.target)
+      }
+    })
+  }, { threshold: 0.1 })
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el))
+
+  // Filter functionality
+  const filterBtns = document.querySelectorAll('.filter-btn')
+  const newsItems = document.querySelectorAll('.news-item')
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Update active button
+      filterBtns.forEach(b => b.classList.remove('active'))
+      btn.classList.add('active')
+
+      // Filter items
+      const filterValue = btn.getAttribute('data-filter')
+      newsItems.forEach(item => {
+        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+          item.style.display = 'flex'
+          setTimeout(() => item.classList.add('visible'), 10)
+        } else {
+          item.style.display = 'none'
+          item.classList.remove('visible')
+        }
+      })
+    })
+  })
+</script>

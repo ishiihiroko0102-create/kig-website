@@ -1,24 +1,32 @@
 ---
+import { getLangFromUrl, getLocalizedPath, getAlternateUrl } from '../i18n/utils'
+import { t } from '../i18n/translations'
+
+const lang = getLangFromUrl(Astro.url)
+const lp = (path: string) => getLocalizedPath(path, lang)
+const altLang = lang === 'ja' ? 'en' : 'ja'
+const altUrl = getAlternateUrl(Astro.url.pathname, altLang)
+
 const navItems = [
-  { label: 'ABOUT', href: '/about', children: [
-    { label: '企業理念', href: '/about#concept' },
-    { label: '会社紹介', href: '/about#introduction' },
-    { label: '会社情報', href: '/about#info' },
-    { label: 'スタッフ紹介', href: '/staff' },
+  { label: t(lang, 'nav.about'), href: lp('/about'), children: [
+    { label: t(lang, 'nav.about.concept'), href: lp('/about') + '#concept' },
+    { label: t(lang, 'nav.about.introduction'), href: lp('/about') + '#introduction' },
+    { label: t(lang, 'nav.about.info'), href: lp('/about') + '#info' },
+    { label: t(lang, 'nav.about.staff'), href: lp('/staff') },
   ]},
-  { label: '事業一覧', href: '/business' },
-  { label: '営業所', href: '/locations' },
-  { label: '採用情報', href: '/recruit' },
-  { label: 'ニュース', href: '/news' },
-  { label: 'お問い合わせ', href: '/contact' },
+  { label: t(lang, 'nav.business'), href: lp('/business') },
+  { label: t(lang, 'nav.locations'), href: lp('/locations') },
+  { label: t(lang, 'nav.recruit'), href: lp('/recruit') },
+  { label: t(lang, 'nav.news'), href: lp('/news') },
+  { label: t(lang, 'nav.contact'), href: lp('/contact') },
 ]
 ---
 
 <header>
   <div class="header-inner container">
-    <a href="/" class="logo">
+    <a href={lp('/')} class="logo">
       <span class="logo-kig">KIG</span>
-      <span class="logo-sub">株式会社KIG</span>
+      <span class="logo-sub">{t(lang, 'site.name')}</span>
     </a>
     <nav class="nav">
       {navItems.map(item => (
@@ -34,7 +42,31 @@ const navItems = [
         </div>
       ))}
     </nav>
-    <a href="https://www.rakuten.co.jp/kig-ltd/" target="_blank" class="btn btn-navy header-btn">楽天ストア</a>
+    <div class="header-actions">
+      <div class="store-dropdown">
+        <button class="btn btn-primary header-btn store-toggle">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Store
+          <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="store-menu">
+          <a href="https://www.rakuten.co.jp/kig-ltd/" target="_blank" class="store-link">
+            <span class="store-name">{t(lang, 'nav.store.rakuten')}</span>
+          </a>
+          <a href="https://auctions.yahoo.co.jp/seller/kig_kaitori" target="_blank" class="store-link">
+            <span class="store-name">{t(lang, 'nav.store.yahoo.auction')}</span>
+          </a>
+          <a href="https://shopping.yahoo.co.jp/search?seller_id=kig" target="_blank" class="store-link">
+            <span class="store-name">{t(lang, 'nav.store.yahoo.shopping')}</span>
+          </a>
+        </div>
+      </div>
+      <a href={altUrl} class="lang-toggle">
+        <span class={lang === 'ja' ? 'lang-active' : ''}>{t(lang, 'lang.ja')}</span>
+        <span class="lang-divider">/</span>
+        <span class={lang === 'en' ? 'lang-active' : ''}>{t(lang, 'lang.en')}</span>
+      </a>
+    </div>
   </div>
 </header>
 
@@ -45,7 +77,7 @@ const navItems = [
     z-index: 100;
     background: rgba(255,255,255,0.95);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid var(--gray-200, #e0e0e0);
   }
   .header-inner {
     height: 68px;
@@ -63,12 +95,12 @@ const navItems = [
   .logo-kig {
     font-size: 22px;
     font-weight: 800;
-    color: #0d1f6e;
+    color: var(--primary, #0a0a0a);
     letter-spacing: 0.06em;
   }
   .logo-sub {
     font-size: 12px;
-    color: #6b7280;
+    color: var(--gray-500, #666666);
     font-weight: 400;
   }
   .nav {
@@ -85,14 +117,14 @@ const navItems = [
     display: block;
     font-size: 14px;
     font-weight: 500;
-    color: #374151;
+    color: var(--gray-700, #333333);
     padding: 8px 14px;
     border-radius: 6px;
     transition: color 0.15s, background 0.15s;
   }
   .nav-link:hover {
-    color: #0d1f6e;
-    background: #e8edf8;
+    color: var(--primary, #0a0a0a);
+    background: var(--gray-100, #f7f7f7);
   }
   .dropdown {
     display: none;
@@ -100,7 +132,7 @@ const navItems = [
     top: calc(100% + 8px);
     left: 0;
     background: #fff;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--gray-200, #e0e0e0);
     border-radius: 8px;
     padding: 8px;
     min-width: 160px;
@@ -112,23 +144,106 @@ const navItems = [
   }
   .dropdown-item {
     font-size: 13px;
-    color: #374151;
+    color: var(--gray-700, #333333);
     padding: 8px 12px;
     border-radius: 4px;
     white-space: nowrap;
     transition: background 0.15s, color 0.15s;
   }
   .dropdown-item:hover {
-    background: #e8edf8;
-    color: #0d1f6e;
+    background: var(--gray-100, #f7f7f7);
+    color: var(--primary, #0a0a0a);
   }
   .header-btn {
     font-size: 13px;
     padding: 8px 18px;
     flex-shrink: 0;
   }
+
+  /* Header actions */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  /* Store dropdown */
+  .store-dropdown {
+    position: relative;
+  }
+  .store-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+  }
+  .store-toggle .chevron {
+    transition: transform 0.2s ease;
+  }
+  .store-dropdown:hover .chevron {
+    transform: rotate(180deg);
+  }
+  .store-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: #fff;
+    border: 1px solid var(--gray-200, #e0e0e0);
+    border-radius: 8px;
+    padding: 8px;
+    min-width: 180px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    z-index: 200;
+  }
+  .store-dropdown:hover .store-menu {
+    display: flex;
+    flex-direction: column;
+  }
+  .store-link {
+    display: block;
+    padding: 10px 14px;
+    border-radius: 4px;
+    transition: background 0.15s;
+  }
+  .store-link:hover {
+    background: var(--gray-100, #f7f7f7);
+  }
+  .store-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-700, #333333);
+  }
+
+  /* Language toggle */
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted, #888888);
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--gray-200, #e0e0e0);
+    transition: border-color 0.15s;
+  }
+  .lang-toggle:hover {
+    border-color: var(--gray-400, #aaa);
+  }
+  .lang-divider {
+    color: var(--gray-300, #ccc);
+    margin: 0 2px;
+  }
+  .lang-active {
+    color: var(--text-primary, #2D2D2D);
+    font-weight: 700;
+  }
+
   @media (max-width: 768px) {
     .nav { display: none; }
+    .store-dropdown { display: none; }
     .header-btn { display: none; }
   }
 </style>
